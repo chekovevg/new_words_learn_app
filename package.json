@@ -1,0 +1,27 @@
+{
+  "name": "new_words_learn_app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/build-data.mjs && vite build",
+    "data:build": "node scripts/build-data.mjs",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chekovevg/new_words_learn_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^8.0.14",
+    "xlsx": "^0.18.5"
+  },
+  "bugs": {
+    "url": "https://github.com/chekovevg/new_words_learn_app/issues"
+  },
+  "homepage": "https://github.com/chekovevg/new_words_learn_app#readme"
+}
