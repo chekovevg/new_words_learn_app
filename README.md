@@ -91,3 +91,12 @@ npm run build
 - ручное добавление слова;
 - админ-панель у пользователя с ролью `admin`;
 - синхронизацию на десктопе и телефоне под одним аккаунтом.
+## AI enrichment
+
+The app can call Gemini from a serverless Vercel function to enrich missing `level` and `example` fields.
+Set these environment variables on Vercel:
+
+```env
+GEMINI_API_KEY=your_gemini_key
+GEMINI_MODEL=gemini-2.0-flash
+```

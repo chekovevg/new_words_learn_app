@@ -23,9 +23,9 @@ const STATUS_LABELS = {
 };
 const DEFAULT_LANGUAGES = ['English', 'German', 'Georgian'];
 const SUPABASE_FETCH_BATCH_SIZE = 1000;
+const AI_ENRICHMENT_BATCH_SIZE = 12;
 const LEGACY_PROGRESS_KEY = 'new-words-learn-progress-v2';
 const MIGRATION_FLAG_PREFIX = 'new-words-migrated';
-const legacyWordIndex = buildLegacyWordIndex();
 
 const state = {
   loading: true,
@@ -261,9 +261,6 @@ function appTemplate() {
             <button class="ghost header-action" type="button" data-action="open-import">Импорт</button>
             <button class="ghost header-action" type="button" data-action="enrich-words" ${state.enrichmentInProgress ? 'disabled' : ''}>
               ${state.enrichmentInProgress ? 'Обогащаем…' : 'Обогатить слова'}
-            </button>
-            <button class="ghost header-action" type="button" data-action="recalculate-words" ${state.enrichmentInProgress ? 'disabled' : ''}>
-              ${state.enrichmentInProgress ? 'Пересчитываем…' : 'Пересчитать'}
             </button>
             <div class="profile-chip header-profile-chip" data-action="open-profile">
               <div class="profile-meta">
@@ -677,11 +674,7 @@ function handleClick(event) {
       return;
     }
     if (action === 'enrich-words') {
-      enrichCurrentWords({ announce: true, force: false }).catch((error) => setError(error.message));
-      return;
-    }
-    if (action === 'recalculate-words') {
-      enrichCurrentWords({ announce: true, force: true }).catch((error) => setError(error.message));
+      enrichCurrentWords({ announce: true }).catch((error) => setError(error.message));
       return;
     }
     if (action === 'close-modal') {
@@ -858,7 +851,9 @@ function normalizeRemoteWord(word) {
     language: clampString(word.language, 'English'),
     word_key: clampString(word.word_key, makeWordKey(word.word, word.language)),
     language_key: clampString(word.language_key, normalizeText(word.language || 'English')),
-    enriched: Boolean(word.enriched)
+    enriched: Boolean(word.enriched),
+    source: clampString(word.source, null),
+    confidence: normalizeConfidence(word.confidence)
   };
 }
 
@@ -924,6 +919,8 @@ async function importLegacyWords() {
     language: item.language || 'English',
     level: item.level || null,
     example: item.example || null,
+    source: 'legacy',
+    confidence: null,
     enriched: false,
     learned: learned.has(item.id),
     word_key: makeWordKey(item.word, item.language),
@@ -975,6 +972,8 @@ async function importAdminLegacyHtmlWords() {
         language: item.language || 'English',
         level: item.level || null,
         example: item.example || null,
+        source: 'legacy',
+        confidence: null,
         enriched: false,
         learned: existing ? Boolean(existing.learned) : learnedFromLegacy,
         word_key: key,
@@ -1081,6 +1080,8 @@ async function addWord(form) {
     language,
     level,
     example,
+    source: 'manual',
+    confidence: null,
     enriched: false,
     learned: existing ? existing.learned : false,
     word_key: makeWordKey(word, language),
@@ -1141,6 +1142,8 @@ async function importWords(form) {
         language,
         level: clampString(row.level, null),
         example: clampString(row.example, null),
+        source: 'manual',
+        confidence: null,
         enriched: false,
         learned: existing ? existing.learned || parseLearned(row.learned) : parseLearned(row.learned),
         word_key: makeWordKey(word, language),
@@ -1158,10 +1161,7 @@ async function importWords(form) {
     await loadUserData(state.session.user.id);
 
     if (enrichAfterImport) {
-      const enrichedCount = await enrichCurrentWords({
-        announce: false,
-        onlyMissing: true
-      });
+      const enrichedCount = await enrichCurrentWords({ announce: false });
       if (enrichedCount > 0) {
         state.message = `Импортировано ${uniqueRows.length} строк. Обогащено ${enrichedCount} слов.`;
       }
@@ -1174,7 +1174,7 @@ async function importWords(form) {
   render();
 }
 
-async function enrichCurrentWords({ announce = true, onlyMissing = true, force = false } = {}) {
+async function enrichCurrentWords({ announce = true } = {}) {
   if (!state.session?.user?.id) return 0;
   if (state.enrichmentInProgress) return 0;
 
@@ -1183,62 +1183,142 @@ async function enrichCurrentWords({ announce = true, onlyMissing = true, force =
 
   try {
     const currentRows = state.words.slice();
-    const payloads = [];
-    let matchedCount = 0;
-    let heuristicCount = 0;
-    let alreadyFilledCount = 0;
+    const candidates = currentRows.filter((item) => !item.level || !item.example);
 
-    currentRows.forEach((item, index) => {
-      const match = findLegacyEnrichmentMatch(item.word, item.language, item.translation);
-      if (match) {
-        matchedCount += 1;
-        const payload = buildEnrichedWordPayload(item, index, match, { onlyMissing, force });
-        if (payload) {
-          payloads.push(payload);
-        } else {
-          alreadyFilledCount += 1;
-        }
-        return;
-      }
-
-      const fallback = buildHeuristicEnrichmentPayload(item, index, { onlyMissing, force });
-      if (fallback) {
-        heuristicCount += 1;
-        payloads.push(fallback);
-      } else if (item.level || item.example) {
-        alreadyFilledCount += 1;
-      }
-    });
-
-    if (!payloads.length) {
+    if (!candidates.length) {
       if (announce) {
-        if (matchedCount === 0) {
-          state.message = 'Для обогащения не нашлось совпадений в эталонной таблице и всё уже заполнено вручную.';
-        } else if (alreadyFilledCount === matchedCount) {
-          state.message = 'Все подходящие слова уже обогащены.';
-        } else {
-          state.message = 'Нечего обогащать.';
-        }
+        state.message = 'Нечего обогащать.';
       }
-      await loadUserData(state.session.user.id);
       return 0;
     }
 
-    await upsertWordRows(payloads);
+    const payloads = [];
+    let processed = 0;
+    let newlyEnrichedCount = 0;
+    let updatedCount = 0;
+
+    for (const batch of chunkArray(candidates, AI_ENRICHMENT_BATCH_SIZE)) {
+      if (announce) {
+        state.message = `Обогащаем ${Math.min(processed + batch.length, candidates.length)} из ${candidates.length}...`;
+        render();
+      }
+
+      const aiRows = await requestAiEnrichment(batch);
+      const rowsById = new Map(aiRows.map((row) => [String(row.id), row]));
+
+      for (const item of batch) {
+        const aiRow = rowsById.get(String(item.id));
+        if (!aiRow) continue;
+
+        const nextLevel = item.level || clampString(aiRow.level, null);
+        const nextExample = item.example || clampString(aiRow.example, null);
+        const nextConfidence = normalizeConfidence(aiRow.confidence);
+        const nextSource = clampString(aiRow.source, 'gemini') || 'gemini';
+        const wasBlankBefore = !item.level && !item.example;
+        const nextEnriched = wasBlankBefore && Boolean(nextLevel || nextExample);
+
+        if (
+          nextLevel === item.level &&
+          nextExample === item.example &&
+          nextConfidence === normalizeConfidence(item.confidence) &&
+          nextSource === item.source &&
+          nextEnriched === Boolean(item.enriched)
+        ) {
+          continue;
+        }
+
+        payloads.push({
+          ...item,
+          level: nextLevel,
+          example: nextExample,
+          source: nextSource,
+          confidence: nextConfidence,
+          enriched: nextEnriched,
+          learned: Boolean(item.learned),
+          word_key: item.word_key || makeWordKey(item.word, item.language),
+          language_key: item.language_key || normalizeText(item.language || 'English')
+        });
+
+        updatedCount += 1;
+        if (nextEnriched) newlyEnrichedCount += 1;
+      }
+
+      processed += batch.length;
+    }
+
+    if (!payloads.length) {
+      if (announce) {
+        state.message = 'Все подходящие слова уже обогащены.';
+      }
+      return 0;
+    }
+
+    await upsertWordRows(dedupeImportPayloads(payloads));
     await loadUserData(state.session.user.id);
 
     if (announce) {
-      const parts = [`${force ? 'Пересчитано' : 'Обогащено'} ${payloads.length} слов`];
-      if (matchedCount > 0) parts.push(`legacy: ${matchedCount}`);
-      if (heuristicCount > 0) parts.push(`heuristic: ${heuristicCount}`);
+      const parts = [`Обновлено ${updatedCount} слов`];
+      if (newlyEnrichedCount > 0) parts.push(`новых маркеров: ${newlyEnrichedCount}`);
       state.message = `${parts.join(', ')}.`;
     }
 
-    return payloads.length;
+    return updatedCount;
   } finally {
     state.enrichmentInProgress = false;
     render();
   }
+}
+
+async function requestAiEnrichment(items) {
+  if (!Array.isArray(items) || !items.length) return [];
+
+  const response = await fetch('/api/enrich-words', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      items: items.map((item) => ({
+        id: item.id,
+        word: item.word,
+        translation: item.translation,
+        language: item.language,
+        level: item.level || null,
+        example: item.example || null
+      }))
+    })
+  });
+
+  const data = await response.json().catch(() => null);
+  if (!response.ok) {
+    const message = data?.error || data?.message || `Enrichment request failed (${response.status})`;
+    throw new Error(message);
+  }
+
+  const results = Array.isArray(data?.results) ? data.results : [];
+  return results.map((row) => ({
+    id: row.id,
+    level: row.level ?? null,
+    example: row.example ?? null,
+    confidence: normalizeConfidence(row.confidence),
+    source: clampString(row.source, 'gemini') || 'gemini'
+  }));
+}
+
+function chunkArray(items, size) {
+  const chunks = [];
+  for (let index = 0; index < items.length; index += size) {
+    chunks.push(items.slice(index, index + size));
+  }
+  return chunks;
+}
+
+function normalizeConfidence(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return null;
+  if (numeric < 0) return 0;
+  if (numeric > 1) return 1;
+  return Math.round(numeric * 100) / 100;
 }
 
 function buildEnrichedWordPayload(item, index, match, { onlyMissing = true, force = false } = {}) {
@@ -1445,6 +1525,8 @@ function dedupeImportPayloads(rows) {
       language: row.language || existing.language,
       level: row.level ?? existing.level,
       example: row.example ?? existing.example,
+      source: row.source ?? existing.source,
+      confidence: row.confidence ?? existing.confidence,
       enriched: Boolean(existing.enriched || row.enriched),
       learned: Boolean(existing.learned || row.learned),
       sort_order: Math.min(Number(existing.sort_order) || 0, Number(row.sort_order) || 0)
@@ -1523,8 +1605,8 @@ function renderWords() {
           <td><div class="word">${escapeHTML(item.word)}</div></td>
           <td><div class="translation">${escapeHTML(item.translation)}</div></td>
           <td>
-            <div class="example${item.enriched ? ' example-enriched' : ''}">
-              ${item.enriched ? '<span class="example-marker" aria-hidden="true"></span>' : ''}
+            <div class="example${item.enriched && item.source === 'gemini' ? ' example-enriched' : ''}">
+              ${item.enriched && item.source === 'gemini' ? '<span class="example-marker" aria-hidden="true"></span>' : ''}
               <span>${escapeHTML(item.example || '')}</span>
             </div>
           </td>
