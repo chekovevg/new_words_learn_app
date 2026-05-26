@@ -83,7 +83,7 @@ async function init() {
       await loadUserData(session.user.id);
     }
   } catch (error) {
-    state.error = error.message;
+    state.error = formatErrorMessage(error.message);
   } finally {
     state.loading = false;
     render();
@@ -102,7 +102,7 @@ async function init() {
       try {
         await loadUserData(nextSession.user.id);
       } catch (error) {
-        state.error = error.message;
+        state.error = formatErrorMessage(error.message);
         state.profile = null;
         state.words = [];
         state.adminProfiles = [];
@@ -1056,9 +1056,20 @@ function clearStatus() {
 }
 
 function setError(message) {
-  state.error = message;
+  state.error = formatErrorMessage(message);
   state.message = '';
   render();
+}
+
+function formatErrorMessage(message) {
+  const normalized = String(message || '').toLowerCase();
+  if (normalized.includes('permission denied for table profiles') || normalized.includes('permission denied for table words')) {
+    return 'Нет доступа к таблицам Supabase. Примените grants из `supabase/migrations/20260526_init.sql` в SQL Editor проекта.';
+  }
+  if (normalized.includes('row-level security')) {
+    return 'Supabase отклонил запрос по RLS. Проверьте политики и grants в `supabase/migrations/20260526_init.sql`.';
+  }
+  return message;
 }
 
 function parseLearned(value) {

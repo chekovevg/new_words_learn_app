@@ -26,6 +26,14 @@ create table if not exists public.words (
   constraint words_user_word_language_unique unique (user_id, word_key, language_key)
 );
 
+grant usage on schema public to authenticated;
+grant select, insert, update, delete on table public.profiles to authenticated;
+grant select, insert, update, delete on table public.words to authenticated;
+grant execute on function public.admin_delete_user(uuid) to authenticated;
+grant execute on function public.admin_set_role(uuid, text) to authenticated;
+grant execute on function public.is_admin() to authenticated;
+grant execute on function public.is_self_or_admin(uuid) to authenticated;
+
 create or replace function public.set_updated_at()
 returns trigger
 language plpgsql
