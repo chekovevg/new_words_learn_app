@@ -1176,13 +1176,32 @@ async function enrichCurrentWords({ announce = true, onlyMissing = true } = {}) 
 
   try {
     const currentRows = state.words.slice();
-    const payloads = currentRows
-      .map((item, index) => buildEnrichedWordPayload(item, index, { onlyMissing }))
-      .filter(Boolean);
+    const payloads = [];
+    let matchedCount = 0;
+    let alreadyFilledCount = 0;
+
+    currentRows.forEach((item, index) => {
+      const match = findLegacyEnrichmentMatch(item.word, item.language, item.translation);
+      if (!match) return;
+
+      matchedCount += 1;
+      const payload = buildEnrichedWordPayload(item, index, match, { onlyMissing });
+      if (payload) {
+        payloads.push(payload);
+      } else {
+        alreadyFilledCount += 1;
+      }
+    });
 
     if (!payloads.length) {
       if (announce) {
-        state.message = 'Для обогащения не нашлось точных совпадений.';
+        if (matchedCount === 0) {
+          state.message = 'Для обогащения не нашлось совпадений в эталонной таблице.';
+        } else if (alreadyFilledCount === matchedCount) {
+          state.message = 'Все подходящие слова уже обогащены.';
+        } else {
+          state.message = 'Нечего обогащать.';
+        }
       }
       await loadUserData(state.session.user.id);
       return 0;
@@ -1202,10 +1221,7 @@ async function enrichCurrentWords({ announce = true, onlyMissing = true } = {}) 
   }
 }
 
-function buildEnrichedWordPayload(item, index, { onlyMissing = true } = {}) {
-  const match = findLegacyEnrichmentMatch(item.word, item.language, item.translation);
-  if (!match) return null;
-
+function buildEnrichedWordPayload(item, index, match, { onlyMissing = true } = {}) {
   const nextLevel = item.level || clampString(match.level, null);
   const nextExample = item.example || clampString(match.example, null);
 
