@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/chekovevg/new_words_learn_app#readme",
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "@supabase/supabase-js": "^2.106.2",
     "mammoth": "^1.12.0",
     "pdfjs-dist": "^5.7.284"
