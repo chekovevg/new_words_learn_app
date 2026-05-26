@@ -577,6 +577,22 @@ tbody tr.learned-row {
   line-height: 1.45;
 }
 
+.example-enriched {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.example-marker {
+  width: 7px;
+  height: 7px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
 .muted {
   color: var(--muted);
 }

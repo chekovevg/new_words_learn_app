@@ -18,6 +18,7 @@ create table if not exists public.words (
   language text not null default 'English',
   level text,
   example text,
+  enriched boolean not null default false,
   learned boolean not null default false,
   word_key text not null,
   language_key text not null,

@@ -850,7 +850,8 @@ function normalizeRemoteWord(word) {
     ...word,
     language: clampString(word.language, 'English'),
     word_key: clampString(word.word_key, makeWordKey(word.word, word.language)),
-    language_key: clampString(word.language_key, normalizeText(word.language || 'English'))
+    language_key: clampString(word.language_key, normalizeText(word.language || 'English')),
+    enriched: Boolean(word.enriched)
   };
 }
 
@@ -916,6 +917,7 @@ async function importLegacyWords() {
     language: item.language || 'English',
     level: item.level || null,
     example: item.example || null,
+    enriched: false,
     learned: learned.has(item.id),
     word_key: makeWordKey(item.word, item.language),
     language_key: normalizeText(item.language || 'English'),
@@ -966,6 +968,7 @@ async function importAdminLegacyHtmlWords() {
         language: item.language || 'English',
         level: item.level || null,
         example: item.example || null,
+        enriched: false,
         learned: existing ? Boolean(existing.learned) : learnedFromLegacy,
         word_key: key,
         language_key: normalizeText(item.language || 'English'),
@@ -1071,6 +1074,7 @@ async function addWord(form) {
     language,
     level,
     example,
+    enriched: false,
     learned: existing ? existing.learned : false,
     word_key: makeWordKey(word, language),
     language_key: normalizeText(language),
@@ -1130,6 +1134,7 @@ async function importWords(form) {
         language,
         level: clampString(row.level, null),
         example: clampString(row.example, null),
+        enriched: false,
         learned: existing ? existing.learned || parseLearned(row.learned) : parseLearned(row.learned),
         word_key: makeWordKey(word, language),
         language_key: normalizeText(language),
@@ -1215,6 +1220,7 @@ function buildEnrichedWordPayload(item, index, { onlyMissing = true } = {}) {
     language: item.language || 'English',
     level: nextLevel,
     example: nextExample,
+    enriched: true,
     learned: Boolean(item.learned),
     word_key: item.word_key || makeWordKey(item.word, item.language),
     language_key: item.language_key || normalizeText(item.language || 'English'),
@@ -1357,6 +1363,7 @@ function dedupeImportPayloads(rows) {
       language: row.language || existing.language,
       level: row.level ?? existing.level,
       example: row.example ?? existing.example,
+      enriched: Boolean(existing.enriched || row.enriched),
       learned: Boolean(existing.learned || row.learned),
       sort_order: Math.min(Number(existing.sort_order) || 0, Number(row.sort_order) || 0)
     });
@@ -1433,7 +1440,12 @@ function renderWords() {
           <td><span class="level ${escapeHTML(item.level || '')}">${escapeHTML(item.level || '—')}</span></td>
           <td><div class="word">${escapeHTML(item.word)}</div></td>
           <td><div class="translation">${escapeHTML(item.translation)}</div></td>
-          <td><div class="example">${escapeHTML(item.example || '')}</div></td>
+          <td>
+            <div class="example${item.enriched ? ' example-enriched' : ''}">
+              ${item.enriched ? '<span class="example-marker" aria-hidden="true"></span>' : ''}
+              <span>${escapeHTML(item.example || '')}</span>
+            </div>
+          </td>
         </tr>
       `;
     })
