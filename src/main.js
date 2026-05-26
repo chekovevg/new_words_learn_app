@@ -23,6 +23,7 @@ const DEFAULT_LANGUAGES = ['English', 'German', 'Georgian'];
 const SUPABASE_FETCH_BATCH_SIZE = 1000;
 const LEGACY_PROGRESS_KEY = 'new-words-learn-progress-v2';
 const MIGRATION_FLAG_PREFIX = 'new-words-migrated';
+const legacyWordIndex = buildLegacyWordIndex();
 
 const state = {
   loading: true,
@@ -33,6 +34,7 @@ const state = {
   adminProfiles: [],
   adminWords: [],
   adminLegacyImportInProgress: false,
+  enrichmentInProgress: false,
   query: '',
   tab: 'all',
   level: 'all',
@@ -255,6 +257,9 @@ function appTemplate() {
             <button class="ghost header-action" type="button" data-action="open-profile">Профиль</button>
             <button class="ghost header-action" type="button" data-action="open-add-word">Добавить слово</button>
             <button class="ghost header-action" type="button" data-action="open-import">Импорт</button>
+            <button class="ghost header-action" type="button" data-action="enrich-words" ${state.enrichmentInProgress ? 'disabled' : ''}>
+              ${state.enrichmentInProgress ? 'Обогащаем…' : 'Обогатить слова'}
+            </button>
             <div class="profile-chip header-profile-chip" data-action="open-profile">
               <div class="profile-meta">
                 <strong>${profileName}</strong>
@@ -400,6 +405,10 @@ function renderImportForm() {
       <label class="checkbox-line">
         <input type="checkbox" name="mergeOnly" checked />
         <span>Добавлять в список и обновлять совпадающие слова</span>
+      </label>
+      <label class="checkbox-line">
+        <input type="checkbox" name="enrichAfterImport" checked />
+        <span>Сразу обогатить слова уровнями и примерами</span>
       </label>
       <button class="primary" type="submit">Импортировать файл</button>
     </form>
@@ -660,6 +669,10 @@ function handleClick(event) {
     }
     if (action === 'open-import') {
       openModal('import');
+      return;
+    }
+    if (action === 'enrich-words') {
+      enrichCurrentWords({ announce: true }).catch((error) => setError(error.message));
       return;
     }
     if (action === 'close-modal') {
@@ -1101,6 +1114,8 @@ async function importWords(form) {
       throw new Error('Не удалось распознать документ. Поддерживаются PDF, DOCX, TXT, XLSX и CSV.');
     }
 
+    const enrichAfterImport = Boolean(form.elements.enrichAfterImport?.checked);
+
     const normalizedRows = rows.map((row, index) => {
       const word = clampString(row.word);
       const translation = clampString(row.translation);
@@ -1127,12 +1142,108 @@ async function importWords(form) {
 
     state.message = `Импортировано ${uniqueRows.length} строк.`;
     await loadUserData(state.session.user.id);
+
+    if (enrichAfterImport) {
+      const enrichedCount = await enrichCurrentWords({
+        announce: false,
+        onlyMissing: true
+      });
+      if (enrichedCount > 0) {
+        state.message = `Импортировано ${uniqueRows.length} строк. Обогащено ${enrichedCount} слов.`;
+      }
+    }
   } catch (error) {
     setError(error.message);
   }
 
   setBusy(false);
   render();
+}
+
+async function enrichCurrentWords({ announce = true, onlyMissing = true } = {}) {
+  if (!state.session?.user?.id) return 0;
+  if (state.enrichmentInProgress) return 0;
+
+  state.enrichmentInProgress = true;
+  render();
+
+  try {
+    const currentRows = state.words.slice();
+    const payloads = currentRows
+      .map((item, index) => buildEnrichedWordPayload(item, index, { onlyMissing }))
+      .filter(Boolean);
+
+    if (!payloads.length) {
+      if (announce) {
+        state.message = 'Для обогащения не нашлось точных совпадений.';
+      }
+      await loadUserData(state.session.user.id);
+      return 0;
+    }
+
+    await upsertWordRows(payloads);
+    await loadUserData(state.session.user.id);
+
+    if (announce) {
+      state.message = `Обогащено ${payloads.length} слов.`;
+    }
+
+    return payloads.length;
+  } finally {
+    state.enrichmentInProgress = false;
+    render();
+  }
+}
+
+function buildEnrichedWordPayload(item, index, { onlyMissing = true } = {}) {
+  const match = findLegacyEnrichmentMatch(item.word, item.language, item.translation);
+  if (!match) return null;
+
+  const nextLevel = item.level || clampString(match.level, null);
+  const nextExample = item.example || clampString(match.example, null);
+
+  if (onlyMissing && nextLevel === item.level && nextExample === item.example) {
+    return null;
+  }
+
+  return {
+    user_id: item.user_id,
+    word: item.word,
+    translation: item.translation,
+    language: item.language || 'English',
+    level: nextLevel,
+    example: nextExample,
+    learned: Boolean(item.learned),
+    word_key: item.word_key || makeWordKey(item.word, item.language),
+    language_key: item.language_key || normalizeText(item.language || 'English'),
+    sort_order: Number.isFinite(Number(item.sort_order)) ? Number(item.sort_order) : index
+  };
+}
+
+function findLegacyEnrichmentMatch(word, language, translation) {
+  const key = makeWordKey(word, language);
+  const candidates = legacyWordIndex.get(key) || [];
+  if (!candidates.length) return null;
+
+  const normalizedTranslation = normalizeText(translation);
+  const exactTranslationMatch = candidates.find((item) => normalizeText(item.translation) === normalizedTranslation);
+  if (exactTranslationMatch) return exactTranslationMatch;
+
+  return candidates.length === 1 ? candidates[0] : null;
+}
+
+function buildLegacyWordIndex() {
+  const index = new Map();
+  for (const item of seedWords) {
+    const key = makeWordKey(item.word, item.language);
+    const bucket = index.get(key);
+    if (bucket) {
+      bucket.push(item);
+    } else {
+      index.set(key, [item]);
+    }
+  }
+  return index;
 }
 
 async function updateLearnedState(target) {
