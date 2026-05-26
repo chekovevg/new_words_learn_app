@@ -1011,10 +1011,10 @@ async function importWords(form) {
     const uniqueRows = dedupeImportPayloads(normalizedRows);
 
     await upsertWordRows(uniqueRows);
+    closeModal();
 
     state.message = `Импортировано ${uniqueRows.length} строк.`;
     await loadUserData(state.session.user.id);
-    closeModal();
   } catch (error) {
     setError(error.message);
   }
