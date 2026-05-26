@@ -1008,9 +1008,11 @@ async function importWords(form) {
       };
     });
 
-    await upsertWordRows(normalizedRows);
+    const uniqueRows = dedupeImportPayloads(normalizedRows);
 
-    state.message = `Импортировано ${normalizedRows.length} строк.`;
+    await upsertWordRows(uniqueRows);
+
+    state.message = `Импортировано ${uniqueRows.length} строк.`;
     await loadUserData(state.session.user.id);
     closeModal();
   } catch (error) {
@@ -1050,6 +1052,33 @@ async function upsertWordRows(rows, batchSize = 250) {
       throw new Error(error.message);
     }
   }
+}
+
+function dedupeImportPayloads(rows) {
+  const rowsByKey = new Map();
+
+  for (const row of rows) {
+    const key = `${normalizeText(row.language_key)}|${normalizeText(row.word_key)}`;
+    const existing = rowsByKey.get(key);
+
+    if (!existing) {
+      rowsByKey.set(key, { ...row });
+      continue;
+    }
+
+    rowsByKey.set(key, {
+      ...existing,
+      word: row.word || existing.word,
+      translation: row.translation || existing.translation,
+      language: row.language || existing.language,
+      level: row.level ?? existing.level,
+      example: row.example ?? existing.example,
+      learned: Boolean(existing.learned || row.learned),
+      sort_order: Math.min(Number(existing.sort_order) || 0, Number(row.sort_order) || 0)
+    });
+  }
+
+  return [...rowsByKey.values()].sort((a, b) => Number(a.sort_order) - Number(b.sort_order));
 }
 
 async function updateAdminRole(userId, role) {
