@@ -620,11 +620,13 @@ async function signUp(form) {
   const name = form.elements.name.value.trim();
   const email = form.elements.email.value.trim();
   const password = form.elements.password.value;
+  const emailRedirectTo = `${window.location.origin}/`;
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
-      data: { name }
+      data: { name },
+      emailRedirectTo
     }
   });
 
