@@ -30,6 +30,7 @@ const state = {
   words: [],
   adminProfiles: [],
   adminWords: [],
+  adminLegacyImportInProgress: false,
   query: '',
   tab: 'all',
   level: 'all',
@@ -438,6 +439,8 @@ function renderAdminSection() {
     return '';
   }
 
+  const showLegacyImport = !state.profile.legacy_html_seed_imported_at;
+
   const rows = state.adminProfiles
     .map((profile) => {
       const stats = state.adminWords.filter((word) => word.user_id === profile.id);
@@ -471,6 +474,23 @@ function renderAdminSection() {
         </div>
         <button class="ghost" type="button" data-action="refresh-admin">Обновить</button>
       </div>
+      ${
+        showLegacyImport
+          ? `
+        <div class="admin-legacy-card">
+          <div>
+            <strong>Старый HTML-словарь</strong>
+            <p>Одноразово перенесёт английские слова, примеры и уровни в этот admin-аккаунт. Другие языки останутся без изменений.</p>
+          </div>
+          <button class="primary" type="button" data-action="import-admin-legacy-html" ${
+            state.adminLegacyImportInProgress ? 'disabled' : ''
+          }>
+            ${state.adminLegacyImportInProgress ? 'Импортируем…' : 'Импортировать старую HTML-таблицу'}
+          </button>
+        </div>
+        `
+          : ''
+      }
       <div class="table-wrap admin-table">
         <table>
           <thead>
@@ -651,6 +671,10 @@ function handleClick(event) {
     }
     if (action === 'import-legacy') {
       importLegacyWords().catch((error) => setError(error.message));
+      return;
+    }
+    if (action === 'import-admin-legacy-html') {
+      importAdminLegacyHtmlWords().catch((error) => setError(error.message));
       return;
     }
     if (action === 'refresh-admin') {
@@ -888,6 +912,72 @@ async function importLegacyWords() {
   state.message = `Импортировано ${rows.length} слов в ваш аккаунт.`;
   await loadUserData(state.session.user.id);
   render();
+}
+
+async function importAdminLegacyHtmlWords() {
+  if (!state.session?.user?.id) return;
+  if (state.profile?.role !== 'admin') return;
+  if (state.profile?.legacy_html_seed_imported_at) {
+    state.message = 'Старый HTML-словарь уже перенесён в этот admin-аккаунт.';
+    render();
+    return;
+  }
+
+  state.adminLegacyImportInProgress = true;
+  render();
+  try {
+    const learned = loadLegacyProgress();
+    const englishLegacyRows = seedWords.filter(
+      (item) => item.language === 'English' && (item.level || item.example)
+    );
+
+    const existingByKey = new Map(
+      state.words
+        .filter((item) => normalizeText(item.language || 'English') === normalizeText('English'))
+        .map((item) => [makeWordKey(item.word, item.language), item])
+    );
+
+    const rows = englishLegacyRows.map((item, index) => {
+      const key = makeWordKey(item.word, item.language);
+      const existing = existingByKey.get(key);
+      const learnedFromLegacy = learned.has(item.id);
+
+      return {
+        user_id: state.session.user.id,
+        word: item.word,
+        translation: item.translation,
+        language: item.language || 'English',
+        level: item.level || null,
+        example: item.example || null,
+        learned: existing ? Boolean(existing.learned) : learnedFromLegacy,
+        word_key: key,
+        language_key: normalizeText(item.language || 'English'),
+        sort_order: existing ? existing.sort_order : state.words.length + index
+      };
+    });
+
+    const uniqueRows = dedupeImportPayloads(rows);
+    await upsertWordRows(uniqueRows);
+
+    const importedAt = new Date().toISOString();
+    const { error } = await supabase
+      .from('profiles')
+      .update({ legacy_html_seed_imported_at: importedAt })
+      .eq('id', state.session.user.id);
+
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    state.profile.legacy_html_seed_imported_at = importedAt;
+    state.message = `Импортировано ${uniqueRows.length} строк из старой HTML-таблицы.`;
+    await loadUserData(state.session.user.id);
+    await refreshAdminData(false);
+    render();
+  } finally {
+    state.adminLegacyImportInProgress = false;
+    render();
+  }
 }
 
 async function refreshAdminData(showMessage = true) {

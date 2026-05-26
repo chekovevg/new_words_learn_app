@@ -5,6 +5,7 @@ create table if not exists public.profiles (
   email text not null unique,
   name text not null,
   role text not null default 'user' check (role in ('user', 'admin')),
+  legacy_html_seed_imported_at timestamptz,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
