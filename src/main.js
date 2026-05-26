@@ -255,7 +255,7 @@ function appTemplate() {
             <button class="ghost" type="button" data-action="open-add-word">Добавить слово</button>
             <button class="ghost" type="button" data-action="open-import">Импорт</button>
           </div>
-          <div class="profile-chip">
+          <div class="profile-chip" data-action="open-profile">
             <div class="profile-meta">
               <strong>${profileName}</strong>
               <span>${profileEmail}</span>
@@ -302,66 +302,6 @@ function appTemplate() {
         <div class="level-filters" aria-label="Level filters">
           ${LEVELS.map((level) => `<button class="level-filter ${state.level === level ? 'active' : ''}" data-level="${level}" type="button">${level}</button>`).join('')}
         </div>
-      </section>
-
-      <section class="management-grid">
-        <form id="profileForm" class="panel">
-          <div class="panel-head">
-            <div>
-              <h2>Профиль</h2>
-              <p>Имя видно только в вашем аккаунте.</p>
-            </div>
-          </div>
-          <label>
-            <span>Имя</span>
-            <input name="profileName" type="text" value="${escapeHTML(state.forms.profileName)}" placeholder="Как вас показывать" />
-          </label>
-          <button class="primary" type="submit">Сохранить профиль</button>
-        </form>
-
-        <form id="addWordForm" class="panel">
-          <div class="panel-head">
-            <div>
-              <h2>Добавить слово</h2>
-              <p>Слова принадлежат только вашему аккаунту.</p>
-            </div>
-          </div>
-          <div class="form-grid">
-            <label><span>Слово</span><input name="word" type="text" required value="${escapeHTML(state.forms.addWord.word)}" /></label>
-            <label><span>Перевод</span><input name="translation" type="text" required value="${escapeHTML(state.forms.addWord.translation)}" /></label>
-            <label><span>Язык</span><input name="language" type="text" value="${escapeHTML(state.forms.addWord.language)}" /></label>
-            <label>
-              <span>Уровень</span>
-              <select name="level">
-                <option value="">Без уровня</option>
-                ${LEVELS.map((level) => `<option value="${level}"${state.forms.addWord.level === level ? ' selected' : ''}>${level}</option>`).join('')}
-              </select>
-            </label>
-          </div>
-          <label>
-            <span>Пример</span>
-            <textarea name="example" rows="3" placeholder="Пример использования">${escapeHTML(state.forms.addWord.example)}</textarea>
-          </label>
-          <button class="primary" type="submit">Сохранить слово</button>
-        </form>
-
-        <form id="importForm" class="panel">
-          <div class="panel-head">
-            <div>
-              <h2>Импорт</h2>
-              <p>Excel или CSV с merge-импортом, без удаления текущих слов.</p>
-            </div>
-          </div>
-          <label>
-            <span>Файл</span>
-            <input id="importFile" name="file" type="file" accept=".xlsx,.xls,.csv" required />
-          </label>
-          <label class="checkbox-line">
-            <input type="checkbox" name="mergeOnly" checked />
-            <span>Добавлять в список и обновлять совпадающие слова</span>
-          </label>
-          <button class="primary" type="submit">Импортировать файл</button>
-        </form>
       </section>
 
       <main class="table-card">
@@ -1270,3 +1210,4 @@ function pickField(row, names) {
   }
   return '';
 }
+

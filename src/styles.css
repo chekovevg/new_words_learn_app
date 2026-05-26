@@ -165,6 +165,7 @@ h1 {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.84);
   box-shadow: var(--shadow);
+  cursor: pointer;
 }
 
 .profile-meta {
