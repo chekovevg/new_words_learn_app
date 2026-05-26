@@ -121,6 +121,13 @@ h1 {
   gap: 10px;
 }
 
+.header-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .summary {
   display: flex;
   gap: 10px;
@@ -662,6 +669,70 @@ tbody tr.learned-row {
 .bootstrap-card p {
   margin: 10px 0 0;
   color: var(--muted);
+}
+
+.modal-host {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.36);
+  backdrop-filter: blur(8px);
+}
+
+.modal-dialog {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: calc(100vh - 40px);
+  display: grid;
+  align-items: start;
+}
+
+.modal-card {
+  position: relative;
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  border-radius: 26px;
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.24);
+}
+
+.modal-card .panel {
+  margin: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 999px;
+  border-color: rgba(255, 255, 255, 0.9);
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+  color: var(--text);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  transform: translateY(-1px) scale(1.02);
 }
 
 @media (max-width: 1180px) {

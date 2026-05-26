@@ -39,6 +39,7 @@ const state = {
   migrationInProgress: false,
   adminLoading: false,
   loadedUserId: null,
+  modal: null,
   forms: {
     signInEmail: '',
     signInPassword: '',
@@ -64,6 +65,7 @@ app.addEventListener('input', handleInput);
 app.addEventListener('change', handleChange);
 app.addEventListener('click', handleClick);
 app.addEventListener('submit', handleSubmit);
+document.addEventListener('keydown', handleKeyDown);
 
 async function init() {
   if (!hasSupabaseConfig || !supabase) {
@@ -97,6 +99,7 @@ async function init() {
     state.message = '';
     state.migrationEligible = false;
     state.migrationInProgress = false;
+    state.modal = null;
 
     if (nextSession) {
       const nextUserId = nextSession.user.id;
@@ -149,6 +152,18 @@ function render() {
   cacheElements();
   syncFormState();
   renderWords();
+}
+
+function openModal(name) {
+  if (!['profile', 'addWord', 'import'].includes(name)) return;
+  state.modal = name;
+  render();
+}
+
+function closeModal() {
+  if (!state.modal) return;
+  state.modal = null;
+  render();
 }
 
 function loadingTemplate() {
@@ -235,6 +250,11 @@ function appTemplate() {
           <h1>Простая таблица слов</h1>
         </div>
         <div class="header-actions">
+          <div class="header-actions-row">
+            <button class="ghost" type="button" data-action="open-profile">Профиль</button>
+            <button class="ghost" type="button" data-action="open-add-word">Добавить слово</button>
+            <button class="ghost" type="button" data-action="open-import">Импорт</button>
+          </div>
           <div class="profile-chip">
             <div class="profile-meta">
               <strong>${profileName}</strong>
@@ -371,7 +391,108 @@ function appTemplate() {
 
       ${renderAdminSection()}
     </div>
+    ${renderModalHost()}
   `;
+}
+
+function renderProfileForm() {
+  return `
+    <form id="profileForm" class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Профиль</h2>
+          <p>Имя видно только в вашем аккаунте.</p>
+        </div>
+      </div>
+      <label>
+        <span>Имя</span>
+        <input name="profileName" type="text" value="${escapeHTML(state.forms.profileName)}" placeholder="Как вас показывать" />
+      </label>
+      <button class="primary" type="submit">Сохранить профиль</button>
+    </form>
+  `;
+}
+
+function renderAddWordForm() {
+  return `
+    <form id="addWordForm" class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Добавить слово</h2>
+          <p>Слова принадлежат только вашему аккаунту.</p>
+        </div>
+      </div>
+      <div class="form-grid">
+        <label><span>Слово</span><input name="word" type="text" required value="${escapeHTML(state.forms.addWord.word)}" /></label>
+        <label><span>Перевод</span><input name="translation" type="text" required value="${escapeHTML(state.forms.addWord.translation)}" /></label>
+        <label><span>Язык</span><input name="language" type="text" value="${escapeHTML(state.forms.addWord.language)}" /></label>
+        <label>
+          <span>Уровень</span>
+          <select name="level">
+            <option value="">Без уровня</option>
+            ${LEVELS.map((level) => `<option value="${level}"${state.forms.addWord.level === level ? ' selected' : ''}>${level}</option>`).join('')}
+          </select>
+        </label>
+      </div>
+      <label>
+        <span>Пример</span>
+        <textarea name="example" rows="3" placeholder="Пример использования">${escapeHTML(state.forms.addWord.example)}</textarea>
+      </label>
+      <button class="primary" type="submit">Сохранить слово</button>
+    </form>
+  `;
+}
+
+function renderImportForm() {
+  return `
+    <form id="importForm" class="panel">
+      <div class="panel-head">
+        <div>
+          <h2>Импорт</h2>
+          <p>Excel или CSV с merge-импортом, без удаления текущих слов.</p>
+        </div>
+      </div>
+      <label>
+        <span>Файл</span>
+        <input id="importFile" name="file" type="file" accept=".xlsx,.xls,.csv" required />
+      </label>
+      <label class="checkbox-line">
+        <input type="checkbox" name="mergeOnly" checked />
+        <span>Добавлять в список и обновлять совпадающие слова</span>
+      </label>
+      <button class="primary" type="submit">Импортировать файл</button>
+    </form>
+  `;
+}
+
+function renderModalHost() {
+  if (!state.modal) return '';
+
+  return `
+    <div class="modal-host" data-modal-host>
+      <div class="modal-backdrop" data-modal-backdrop></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-label="${getModalLabel(state.modal)}">
+        <button class="modal-close ghost" type="button" data-action="close-modal" aria-label="Закрыть">×</button>
+        <div class="modal-card">
+          ${renderModalContent()}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderModalContent() {
+  if (state.modal === 'profile') return renderProfileForm();
+  if (state.modal === 'addWord') return renderAddWordForm();
+  if (state.modal === 'import') return renderImportForm();
+  return '';
+}
+
+function getModalLabel(modal) {
+  if (modal === 'profile') return 'Профиль';
+  if (modal === 'addWord') return 'Добавить слово';
+  if (modal === 'import') return 'Импорт';
+  return 'Диалог';
 }
 
 function renderAdminSection() {
@@ -516,6 +637,13 @@ function handleInput(event) {
   }
 }
 
+function handleKeyDown(event) {
+  if (event.key === 'Escape' && state.modal) {
+    event.preventDefault();
+    closeModal();
+  }
+}
+
 function handleChange(event) {
   const target = event.target;
   if (!(target instanceof HTMLElement)) return;
@@ -562,6 +690,22 @@ function handleClick(event) {
   const actionButton = target.closest('[data-action]');
   if (actionButton) {
     const action = actionButton.dataset.action;
+    if (action === 'open-profile') {
+      openModal('profile');
+      return;
+    }
+    if (action === 'open-add-word') {
+      openModal('addWord');
+      return;
+    }
+    if (action === 'open-import') {
+      openModal('import');
+      return;
+    }
+    if (action === 'close-modal') {
+      closeModal();
+      return;
+    }
     if (action === 'logout') {
       state.loadedUserId = null;
       supabase.auth.signOut();
@@ -587,6 +731,12 @@ function handleClick(event) {
   const adminDeleteButton = target.closest('[data-admin-delete]');
   if (adminDeleteButton) {
     deleteUser(adminDeleteButton.dataset.adminDelete).catch((error) => setError(error.message));
+    return;
+  }
+
+  const modalBackdrop = target.closest('[data-modal-backdrop]');
+  if (modalBackdrop && target === modalBackdrop) {
+    closeModal();
   }
 }
 
