@@ -99,8 +99,17 @@ async function init() {
     if (nextSession) {
       state.loading = true;
       render();
-      await loadUserData(nextSession.user.id);
-      state.loading = false;
+      try {
+        await loadUserData(nextSession.user.id);
+      } catch (error) {
+        state.error = error.message;
+        state.profile = null;
+        state.words = [];
+        state.adminProfiles = [];
+        state.adminWords = [];
+      } finally {
+        state.loading = false;
+      }
     } else {
       state.profile = null;
       state.words = [];
