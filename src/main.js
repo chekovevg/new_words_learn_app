@@ -1012,6 +1012,7 @@ async function importWords(form) {
 
     state.message = `Импортировано ${normalizedRows.length} строк.`;
     await loadUserData(state.session.user.id);
+    closeModal();
   } catch (error) {
     setError(error.message);
   }
@@ -1189,15 +1190,39 @@ async function readWordRows(file) {
   if (!sheetName) return [];
 
   const sheet = workbook.Sheets[sheetName];
-  const rows = XLSX.utils.sheet_to_json(sheet, { defval: '' });
-  return rows.map((row) => ({
-    word: pickField(row, ['word', 'слово', 'phrase', 'term', 'entry']),
-    translation: pickField(row, ['translation', 'перевод', 'meaning', 'definition']),
-    language: pickField(row, ['language', 'язык', 'lang', 'source language', 'source_language']),
-    level: pickField(row, ['level', 'уровень']),
-    example: pickField(row, ['example', 'пример', 'sentence']),
-    learned: pickField(row, ['learned', 'выучено', 'status'])
-  })).filter((row) => row.word && row.translation);
+  const structuredRows = XLSX.utils.sheet_to_json(sheet, { defval: '' });
+  const normalizedStructuredRows = structuredRows
+    .map((row) => ({
+      word: pickField(row, ['word', 'слово', 'phrase', 'term', 'entry']),
+      translation: pickField(row, ['translation', 'перевод', 'meaning', 'definition']),
+      language: pickField(row, ['language', 'язык', 'lang', 'source language', 'source_language']),
+      level: pickField(row, ['level', 'уровень']),
+      example: pickField(row, ['example', 'пример', 'sentence']),
+      learned: pickField(row, ['learned', 'выучено', 'status'])
+    }))
+    .filter((row) => row.word && row.translation);
+
+  if (normalizedStructuredRows.length) {
+    return normalizedStructuredRows;
+  }
+
+  const tableRows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+  if (tableRows.length <= 1) return [];
+
+  return tableRows
+    .slice(1)
+    .map((cells) => {
+      const normalizedCells = Array.isArray(cells) ? cells.map((cell) => String(cell || '').trim()) : [];
+      return {
+        language: normalizedCells[0] || 'English',
+        word: normalizedCells[2] || normalizedCells[0] || '',
+        translation: normalizedCells[3] || normalizedCells[1] || '',
+        level: '',
+        example: '',
+        learned: ''
+      };
+    })
+    .filter((row) => row.word && row.translation);
 }
 
 function pickField(row, names) {
