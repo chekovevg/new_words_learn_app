@@ -5,7 +5,8 @@ import xlsx from 'xlsx';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourceDir = path.join(root, 'data', 'source');
-const outputPath = path.join(root, 'src', 'data', 'words.json');
+const outputJsonPath = path.join(root, 'src', 'data', 'words.json');
+const outputJsPath = path.join(root, 'src', 'data', 'words.js');
 
 const htmlPath = path.join(sourceDir, 'saved_translations_light_tracker.html');
 const xlsxPath = path.join(sourceDir, 'Saved translations.xlsx');
@@ -112,7 +113,8 @@ const finalRecords = records.map((item, index) => ({
   id: index + 1
 }));
 
-fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-fs.writeFileSync(outputPath, `${JSON.stringify(finalRecords, null, 2)}\n`, 'utf8');
+fs.mkdirSync(path.dirname(outputJsonPath), { recursive: true });
+fs.writeFileSync(outputJsonPath, `${JSON.stringify(finalRecords, null, 2)}\n`, 'utf8');
+fs.writeFileSync(outputJsPath, `const words = ${JSON.stringify(finalRecords, null, 2)};\n\nexport default words;\n`, 'utf8');
 
-console.log(`Wrote ${finalRecords.length} words to ${path.relative(root, outputPath)}`);
+console.log(`Wrote ${finalRecords.length} words to ${path.relative(root, outputJsonPath)} and ${path.relative(root, outputJsPath)}`);

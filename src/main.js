@@ -1,5 +1,4 @@
-import words from './data/words.json';
-import './styles.css';
+import words from './data/words.js';
 
 const STORAGE_KEY = 'new-words-learn-progress-v2';
 const LEVELS = ['B1', 'B2', 'C1', 'C2'];
