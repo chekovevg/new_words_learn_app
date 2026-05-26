@@ -246,22 +246,19 @@ function appTemplate() {
   return `
     <div class="shell">
       <header class="page-header">
-        <div class="title-block">
-          <h1>Простая таблица слов</h1>
-        </div>
         <div class="header-actions">
           <div class="header-actions-row">
-            <button class="ghost" type="button" data-action="open-profile">Профиль</button>
-            <button class="ghost" type="button" data-action="open-add-word">Добавить слово</button>
-            <button class="ghost" type="button" data-action="open-import">Импорт</button>
-          </div>
-          <div class="profile-chip" data-action="open-profile">
-            <div class="profile-meta">
-              <strong>${profileName}</strong>
-              <span>${profileEmail}</span>
+            <button class="ghost header-action" type="button" data-action="open-profile">Профиль</button>
+            <button class="ghost header-action" type="button" data-action="open-add-word">Добавить слово</button>
+            <button class="ghost header-action" type="button" data-action="open-import">Импорт</button>
+            <div class="profile-chip header-profile-chip" data-action="open-profile">
+              <div class="profile-meta">
+                <strong>${profileName}</strong>
+                <span>${profileEmail}</span>
+              </div>
+              <span class="role-badge ${role === 'admin' ? 'role-admin' : ''}">${role}</span>
+              <button class="ghost" type="button" data-action="logout">Выйти</button>
             </div>
-            <span class="role-badge ${role === 'admin' ? 'role-admin' : ''}">${role}</span>
-            <button class="ghost" type="button" data-action="logout">Выйти</button>
           </div>
         </div>
       </header>
