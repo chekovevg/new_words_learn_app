@@ -18,6 +18,7 @@ const STATUS_LABELS = {
   unknown: 'Не выученные'
 };
 const DEFAULT_LANGUAGES = ['English', 'German', 'Georgian'];
+const SUPABASE_FETCH_BATCH_SIZE = 1000;
 const LEGACY_PROGRESS_KEY = 'new-words-learn-progress-v2';
 const MIGRATION_FLAG_PREFIX = 'new-words-migrated';
 
@@ -754,18 +755,21 @@ async function signUp(form) {
 }
 
 async function loadUserData(userId) {
-  const [{ data: profile, error: profileError }, { data: words, error: wordsError }] = await Promise.all([
+  const [{ data: profile, error: profileError }, words] = await Promise.all([
     supabase.from('profiles').select('*').eq('id', userId).maybeSingle(),
-    supabase.from('words').select('*').eq('user_id', userId).order('sort_order', { ascending: true }).order('created_at', { ascending: true })
+    fetchAllSupabaseRows(() =>
+      supabase
+        .from('words')
+        .select('*')
+        .eq('user_id', userId)
+        .order('sort_order', { ascending: true })
+        .order('created_at', { ascending: true })
+    )
   ]);
 
   if (profileError) {
     throw new Error(profileError.message);
   }
-  if (wordsError) {
-    throw new Error(wordsError.message);
-  }
-
   if (!profile) {
     const user = state.session?.user;
     const fallbackName = user?.user_metadata?.name || user?.email?.split('@')[0] || 'Пользователь';
@@ -807,6 +811,24 @@ function normalizeRemoteWord(word) {
     word_key: clampString(word.word_key, makeWordKey(word.word, word.language)),
     language_key: clampString(word.language_key, normalizeText(word.language || 'English'))
   };
+}
+
+async function fetchAllSupabaseRows(queryFactory) {
+  const rows = [];
+  for (let from = 0; ; from += SUPABASE_FETCH_BATCH_SIZE) {
+    const to = from + SUPABASE_FETCH_BATCH_SIZE - 1;
+    const { data, error } = await queryFactory().range(from, to);
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    const batch = data || [];
+    rows.push(...batch);
+    if (batch.length < SUPABASE_FETCH_BATCH_SIZE) {
+      break;
+    }
+  }
+  return rows;
 }
 
 function hasLegacySeed() {
@@ -872,15 +894,16 @@ async function refreshAdminData(showMessage = true) {
   if (state.profile?.role !== 'admin') return;
 
   state.adminLoading = true;
-  const [{ data: profiles, error: profilesError }, { data: words, error: wordsError }] = await Promise.all([
+  const [{ data: profiles, error: profilesError }, words] = await Promise.all([
     supabase.from('profiles').select('*').order('created_at', { ascending: true }),
-    supabase.from('words').select('id, user_id, learned')
+    fetchAllSupabaseRows(() =>
+      supabase.from('words').select('id, user_id, learned').order('created_at', { ascending: true })
+    )
   ]);
 
   state.adminLoading = false;
 
   if (profilesError) throw new Error(profilesError.message);
-  if (wordsError) throw new Error(wordsError.message);
 
   state.adminProfiles = profiles || [];
   state.adminWords = words || [];
