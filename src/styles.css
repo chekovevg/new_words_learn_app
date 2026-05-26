@@ -64,6 +64,7 @@ button {
 .shell-auth {
   min-height: 100vh;
   display: grid;
+  justify-items: center;
   align-content: center;
   gap: 18px;
 }
@@ -78,6 +79,12 @@ button {
 
 .page-header.compact {
   align-items: center;
+  margin-bottom: 0;
+}
+
+.auth-header-only {
+  width: min(100%, 440px);
+  margin-bottom: 0;
 }
 
 .title-block {
@@ -328,7 +335,6 @@ textarea:focus {
   max-width: 540px;
   width: 100%;
   padding: 16px;
-  justify-self: start;
 }
 
 .panel-head {
