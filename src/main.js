@@ -1,4 +1,5 @@
 import { inject } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 import seedWords from './data/words.js';
 import { parseImportedRows } from './lib/import-parser.js';
 import { hasSupabaseConfig, supabase } from './lib/supabase.js';
@@ -12,6 +13,7 @@ import {
 
 const app = document.querySelector('#app');
 inject();
+injectSpeedInsights();
 
 const LEVELS = ['B1', 'B2', 'C1', 'C2'];
 const STATUS_LABELS = {
