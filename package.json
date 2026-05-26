@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/chekovevg/new_words_learn_app/issues"
   },
-  "homepage": "https://github.com/chekovevg/new_words_learn_app#readme"
+  "homepage": "https://github.com/chekovevg/new_words_learn_app#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.106.2"
+  }
 }
