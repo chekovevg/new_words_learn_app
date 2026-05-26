@@ -38,6 +38,7 @@ const state = {
   migrationEligible: false,
   migrationInProgress: false,
   adminLoading: false,
+  loadedUserId: null,
   forms: {
     signInEmail: '',
     signInPassword: '',
@@ -81,6 +82,7 @@ async function init() {
   try {
     if (session) {
       await loadUserData(session.user.id);
+      state.loadedUserId = session.user.id;
     }
   } catch (error) {
     state.error = formatErrorMessage(error.message);
@@ -97,16 +99,24 @@ async function init() {
     state.migrationInProgress = false;
 
     if (nextSession) {
+      const nextUserId = nextSession.user.id;
+      if (state.loadedUserId === nextUserId) {
+        render();
+        return;
+      }
+
       state.loading = true;
       render();
       try {
-        await loadUserData(nextSession.user.id);
+        await loadUserData(nextUserId);
+        state.loadedUserId = nextUserId;
       } catch (error) {
         state.error = formatErrorMessage(error.message);
         state.profile = null;
         state.words = [];
         state.adminProfiles = [];
         state.adminWords = [];
+        state.loadedUserId = null;
       } finally {
         state.loading = false;
       }
@@ -115,6 +125,7 @@ async function init() {
       state.words = [];
       state.adminProfiles = [];
       state.adminWords = [];
+      state.loadedUserId = null;
       state.loading = false;
     }
 
@@ -552,6 +563,7 @@ function handleClick(event) {
   if (actionButton) {
     const action = actionButton.dataset.action;
     if (action === 'logout') {
+      state.loadedUserId = null;
       supabase.auth.signOut();
       return;
     }
@@ -618,6 +630,7 @@ async function signIn(form) {
     setError(error.message);
   } else {
     state.message = 'Вход выполнен.';
+    state.loadedUserId = null;
   }
   setBusy(false);
   render();
@@ -646,6 +659,7 @@ async function signUp(form) {
     state.authView = 'signin';
   } else {
     state.message = 'Аккаунт создан и вы вошли в систему.';
+    state.loadedUserId = data.session.user.id;
   }
 
   setBusy(false);
