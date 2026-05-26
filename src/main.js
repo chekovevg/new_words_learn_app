@@ -1,5 +1,5 @@
-import * as XLSX from 'xlsx';
 import seedWords from './data/words.js';
+import { parseImportedRows } from './lib/import-parser.js';
 import { hasSupabaseConfig, supabase } from './lib/supabase.js';
 import {
   clampString,
@@ -389,12 +389,12 @@ function renderImportForm() {
       <div class="panel-head">
         <div>
           <h2>Импорт</h2>
-          <p>Excel или CSV с merge-импортом, без удаления текущих слов.</p>
+          <p>PDF, DOCX, TXT, Excel или CSV. Импорт идет в merge-режиме, без удаления текущих слов.</p>
         </div>
       </div>
       <label>
         <span>Файл</span>
-        <input id="importFile" name="file" type="file" accept=".xlsx,.xls,.csv" required />
+        <input id="importFile" name="file" type="file" accept=".pdf,.docx,.txt,.xlsx,.xls,.csv" required />
       </label>
       <label class="checkbox-line">
         <input type="checkbox" name="mergeOnly" checked />
@@ -984,9 +984,9 @@ async function importWords(form) {
   clearStatus();
 
   try {
-    const rows = await readWordRows(file);
+    const rows = await parseImportedRows(file);
     if (!rows.length) {
-      throw new Error('В файле не найдено подходящих строк.');
+      throw new Error('Не удалось распознать документ. Поддерживаются PDF, DOCX, TXT, XLSX и CSV.');
     }
 
     const normalizedRows = rows.map((row, index) => {
@@ -1181,58 +1181,5 @@ function parseLearned(value) {
   if (typeof value === 'boolean') return value;
   const text = normalizeText(value);
   return ['true', '1', 'yes', 'да', 'y'].includes(text);
-}
-
-async function readWordRows(file) {
-  const buffer = await file.arrayBuffer();
-  const workbook = XLSX.read(buffer, { type: 'array' });
-  const sheetName = workbook.SheetNames[0];
-  if (!sheetName) return [];
-
-  const sheet = workbook.Sheets[sheetName];
-  const structuredRows = XLSX.utils.sheet_to_json(sheet, { defval: '' });
-  const normalizedStructuredRows = structuredRows
-    .map((row) => ({
-      word: pickField(row, ['word', 'слово', 'phrase', 'term', 'entry']),
-      translation: pickField(row, ['translation', 'перевод', 'meaning', 'definition']),
-      language: pickField(row, ['language', 'язык', 'lang', 'source language', 'source_language']),
-      level: pickField(row, ['level', 'уровень']),
-      example: pickField(row, ['example', 'пример', 'sentence']),
-      learned: pickField(row, ['learned', 'выучено', 'status'])
-    }))
-    .filter((row) => row.word && row.translation);
-
-  if (normalizedStructuredRows.length) {
-    return normalizedStructuredRows;
-  }
-
-  const tableRows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
-  if (tableRows.length <= 1) return [];
-
-  return tableRows
-    .slice(1)
-    .map((cells) => {
-      const normalizedCells = Array.isArray(cells) ? cells.map((cell) => String(cell || '').trim()) : [];
-      return {
-        language: normalizedCells[0] || 'English',
-        word: normalizedCells[2] || normalizedCells[0] || '',
-        translation: normalizedCells[3] || normalizedCells[1] || '',
-        level: '',
-        example: '',
-        learned: ''
-      };
-    })
-    .filter((row) => row.word && row.translation);
-}
-
-function pickField(row, names) {
-  const entries = Object.entries(row);
-  for (const name of names) {
-    const found = entries.find(([key]) => normalizeText(key) === normalizeText(name));
-    if (found && String(found[1]).trim()) {
-      return String(found[1]).trim();
-    }
-  }
-  return '';
 }
 
