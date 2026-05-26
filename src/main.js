@@ -262,6 +262,9 @@ function appTemplate() {
             <button class="ghost header-action" type="button" data-action="enrich-words" ${state.enrichmentInProgress ? 'disabled' : ''}>
               ${state.enrichmentInProgress ? 'Обогащаем…' : 'Обогатить слова'}
             </button>
+            <button class="ghost header-action" type="button" data-action="recalculate-words" ${state.enrichmentInProgress ? 'disabled' : ''}>
+              ${state.enrichmentInProgress ? 'Пересчитываем…' : 'Пересчитать'}
+            </button>
             <div class="profile-chip header-profile-chip" data-action="open-profile">
               <div class="profile-meta">
                 <strong>${profileName}</strong>
@@ -674,7 +677,11 @@ function handleClick(event) {
       return;
     }
     if (action === 'enrich-words') {
-      enrichCurrentWords({ announce: true }).catch((error) => setError(error.message));
+      enrichCurrentWords({ announce: true, force: false }).catch((error) => setError(error.message));
+      return;
+    }
+    if (action === 'recalculate-words') {
+      enrichCurrentWords({ announce: true, force: true }).catch((error) => setError(error.message));
       return;
     }
     if (action === 'close-modal') {
@@ -1167,7 +1174,7 @@ async function importWords(form) {
   render();
 }
 
-async function enrichCurrentWords({ announce = true, onlyMissing = true } = {}) {
+async function enrichCurrentWords({ announce = true, onlyMissing = true, force = false } = {}) {
   if (!state.session?.user?.id) return 0;
   if (state.enrichmentInProgress) return 0;
 
@@ -1178,17 +1185,27 @@ async function enrichCurrentWords({ announce = true, onlyMissing = true } = {}) 
     const currentRows = state.words.slice();
     const payloads = [];
     let matchedCount = 0;
+    let heuristicCount = 0;
     let alreadyFilledCount = 0;
 
     currentRows.forEach((item, index) => {
       const match = findLegacyEnrichmentMatch(item.word, item.language, item.translation);
-      if (!match) return;
+      if (match) {
+        matchedCount += 1;
+        const payload = buildEnrichedWordPayload(item, index, match, { onlyMissing, force });
+        if (payload) {
+          payloads.push(payload);
+        } else {
+          alreadyFilledCount += 1;
+        }
+        return;
+      }
 
-      matchedCount += 1;
-      const payload = buildEnrichedWordPayload(item, index, match, { onlyMissing });
-      if (payload) {
-        payloads.push(payload);
-      } else {
+      const fallback = buildHeuristicEnrichmentPayload(item, index, { onlyMissing, force });
+      if (fallback) {
+        heuristicCount += 1;
+        payloads.push(fallback);
+      } else if (item.level || item.example) {
         alreadyFilledCount += 1;
       }
     });
@@ -1196,7 +1213,7 @@ async function enrichCurrentWords({ announce = true, onlyMissing = true } = {}) 
     if (!payloads.length) {
       if (announce) {
         if (matchedCount === 0) {
-          state.message = 'Для обогащения не нашлось совпадений в эталонной таблице.';
+          state.message = 'Для обогащения не нашлось совпадений в эталонной таблице и всё уже заполнено вручную.';
         } else if (alreadyFilledCount === matchedCount) {
           state.message = 'Все подходящие слова уже обогащены.';
         } else {
@@ -1211,7 +1228,10 @@ async function enrichCurrentWords({ announce = true, onlyMissing = true } = {}) 
     await loadUserData(state.session.user.id);
 
     if (announce) {
-      state.message = `Обогащено ${payloads.length} слов.`;
+      const parts = [`${force ? 'Пересчитано' : 'Обогащено'} ${payloads.length} слов`];
+      if (matchedCount > 0) parts.push(`legacy: ${matchedCount}`);
+      if (heuristicCount > 0) parts.push(`heuristic: ${heuristicCount}`);
+      state.message = `${parts.join(', ')}.`;
     }
 
     return payloads.length;
@@ -1221,11 +1241,36 @@ async function enrichCurrentWords({ announce = true, onlyMissing = true } = {}) 
   }
 }
 
-function buildEnrichedWordPayload(item, index, match, { onlyMissing = true } = {}) {
+function buildEnrichedWordPayload(item, index, match, { onlyMissing = true, force = false } = {}) {
   const nextLevel = item.level || clampString(match.level, null);
   const nextExample = item.example || clampString(match.example, null);
 
-  if (onlyMissing && nextLevel === item.level && nextExample === item.example) {
+  if (!force && onlyMissing && nextLevel === item.level && nextExample === item.example) {
+    return null;
+  }
+
+  return {
+    user_id: item.user_id,
+    word: item.word,
+    translation: item.translation,
+    language: item.language || 'English',
+    level: nextLevel,
+    example: nextExample,
+    enriched: true,
+    learned: Boolean(item.learned),
+    word_key: item.word_key || makeWordKey(item.word, item.language),
+    language_key: item.language_key || normalizeText(item.language || 'English'),
+    sort_order: Number.isFinite(Number(item.sort_order)) ? Number(item.sort_order) : index
+  };
+}
+
+function buildHeuristicEnrichmentPayload(item, index, { onlyMissing = true, force = false } = {}) {
+  if (!force && onlyMissing && item.level && item.example) return null;
+
+  const nextLevel = item.level || estimateHeuristicLevel(item.word, item.translation, item.language);
+  const nextExample = item.example || buildHeuristicExample(item.word, item.language);
+
+  if (!force && onlyMissing && nextLevel === item.level && nextExample === item.example) {
     return null;
   }
 
@@ -1327,6 +1372,27 @@ function scoreLegacyMatch(candidate, word, language, translation) {
 
   score += overlap;
   return score;
+}
+
+function estimateHeuristicLevel(word, translation, language) {
+  const wordText = normalizeLooseText(word);
+  const translationText = normalizeLooseText(translation);
+  const combinedLength = Math.max(wordText.length, translationText.length);
+  const phrasePenalty = wordText.includes(' ') ? 1 : 0;
+  const languageBonus = normalizeText(language) === 'english' ? 0 : 1;
+  const score = combinedLength + phrasePenalty * 4 + languageBonus * 2;
+
+  if (score <= 6) return 'B1';
+  if (score <= 10) return 'B2';
+  if (score <= 16) return 'C1';
+  return 'C2';
+}
+
+function buildHeuristicExample(word, language) {
+  const label = String(word ?? '').trim().replace(/"/g, '”');
+  const noun = label.includes(' ') ? 'phrase' : 'word';
+  const lang = clampString(language, 'English');
+  return `The ${noun} "${label}" appeared in the ${lang} notes.`;
 }
 
 async function updateLearnedState(target) {
