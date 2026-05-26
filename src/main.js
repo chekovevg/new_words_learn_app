@@ -135,9 +135,7 @@ function loadingTemplate() {
   return `
     <div class="bootstrap-screen">
       <div class="bootstrap-card">
-        <div class="kicker">Saved translations tracker</div>
         <h1>Загружаем ваш словарь</h1>
-        <p>Подключаем Supabase, профиль и личные слова.</p>
       </div>
     </div>
   `;
@@ -147,16 +145,9 @@ function authTemplate() {
   const active = state.authView;
   return `
     <div class="shell shell-auth">
-      <header class="page-header compact">
+      <header class="page-header compact auth-header-only">
         <div class="title-block">
-          <div class="kicker">Saved translations tracker</div>
           <h1>Личный словарь</h1>
-          <p class="subtitle">
-            Аккаунт, личный список слов, импорт из Excel и прогресс на всех устройствах.
-          </p>
-        </div>
-        <div class="summary">
-          <span class="pill"><strong>Supabase</strong> подключен</span>
         </div>
       </header>
 
@@ -203,17 +194,12 @@ function authTemplate() {
           `
         }
 
-        <div class="auth-note">
-          <strong>Важно:</strong> текущие слова можно импортировать в свой аккаунт после первого входа.
-        </div>
       </section>
     </div>
   `;
 }
 
 function appTemplate() {
-  const learnedCount = state.words.filter((item) => item.learned).length;
-  const totalCount = state.words.length;
   const visibleLanguages = uniqueSorted(
     state.words.map((item) => item.language).filter(Boolean),
     DEFAULT_LANGUAGES
@@ -226,19 +212,9 @@ function appTemplate() {
     <div class="shell">
       <header class="page-header">
         <div class="title-block">
-          <div class="kicker">Saved translations tracker</div>
           <h1>Простая таблица слов</h1>
-          <p class="subtitle">
-            Личный словарь с отдельным аккаунтом, импортом Excel, ручным добавлением и синхронизацией между устройствами.
-          </p>
         </div>
-
         <div class="header-actions">
-          <div class="summary" aria-label="Summary">
-            <span class="pill"><strong id="totalCount">${totalCount}</strong> всего</span>
-            <span class="pill"><strong id="learnedCount">${learnedCount}</strong> выучено</span>
-          </div>
-
           <div class="profile-chip">
             <div class="profile-meta">
               <strong>${profileName}</strong>
