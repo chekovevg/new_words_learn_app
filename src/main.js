@@ -1225,27 +1225,86 @@ function buildEnrichedWordPayload(item, index, { onlyMissing = true } = {}) {
 function findLegacyEnrichmentMatch(word, language, translation) {
   const key = makeWordKey(word, language);
   const candidates = legacyWordIndex.get(key) || [];
-  if (!candidates.length) return null;
+  const wordOnlyCandidates = legacyWordIndex.get(normalizeText(word)) || [];
+  const pool = candidates.length ? candidates : wordOnlyCandidates;
+  if (!pool.length) return null;
 
   const normalizedTranslation = normalizeText(translation);
-  const exactTranslationMatch = candidates.find((item) => normalizeText(item.translation) === normalizedTranslation);
+  const looseTranslation = normalizeLooseText(translation);
+
+  const exactTranslationMatch = pool.find((item) => normalizeText(item.translation) === normalizedTranslation);
   if (exactTranslationMatch) return exactTranslationMatch;
 
-  return candidates.length === 1 ? candidates[0] : null;
+  const looseExactMatch = pool.find((item) => normalizeLooseText(item.translation) === looseTranslation);
+  if (looseExactMatch) return looseExactMatch;
+
+  if (pool.length === 1) return pool[0];
+
+  let bestMatch = null;
+  let bestScore = -1;
+  for (const candidate of pool) {
+    const score = scoreLegacyMatch(candidate, word, language, translation);
+    if (score > bestScore) {
+      bestScore = score;
+      bestMatch = candidate;
+    }
+  }
+
+  return bestScore > 0 ? bestMatch : null;
 }
 
 function buildLegacyWordIndex() {
   const index = new Map();
   for (const item of seedWords) {
-    const key = makeWordKey(item.word, item.language);
-    const bucket = index.get(key);
-    if (bucket) {
-      bucket.push(item);
+    const wordKey = makeWordKey(item.word, item.language);
+    const wordOnlyKey = normalizeText(item.word);
+    const exactBucket = index.get(wordKey);
+    if (exactBucket) {
+      exactBucket.push(item);
     } else {
-      index.set(key, [item]);
+      index.set(wordKey, [item]);
+    }
+
+    const looseBucket = index.get(wordOnlyKey);
+    if (looseBucket) {
+      looseBucket.push(item);
+    } else {
+      index.set(wordOnlyKey, [item]);
     }
   }
   return index;
+}
+
+function normalizeLooseText(value) {
+  return String(value ?? '')
+    .toLowerCase()
+    .replace(/["'’“”.,;:!?()[\]{}]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function scoreLegacyMatch(candidate, word, language, translation) {
+  let score = 0;
+  if (normalizeText(candidate.word) === normalizeText(word)) score += 6;
+  if (normalizeText(candidate.language) === normalizeText(language)) score += 3;
+
+  const candidateTranslation = normalizeText(candidate.translation);
+  const normalizedTranslation = normalizeText(translation);
+  const looseCandidateTranslation = normalizeLooseText(candidate.translation);
+  const looseTranslation = normalizeLooseText(translation);
+
+  if (candidateTranslation === normalizedTranslation) score += 12;
+  if (looseCandidateTranslation === looseTranslation) score += 8;
+
+  const candidateTokens = new Set(looseCandidateTranslation.split(' ').filter(Boolean));
+  const translationTokens = new Set(looseTranslation.split(' ').filter(Boolean));
+  let overlap = 0;
+  for (const token of translationTokens) {
+    if (candidateTokens.has(token)) overlap += 1;
+  }
+
+  score += overlap;
+  return score;
 }
 
 async function updateLearnedState(target) {
