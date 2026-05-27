@@ -62,12 +62,8 @@ async function enrichBatchWithGemini({ apiKey, model, items }) {
           topP: 0.8,
           topK: 40,
           maxOutputTokens: 2048,
-          responseFormat: {
-            text: {
-              mimeType: 'application/json',
-              schema
-            }
-          }
+          responseMimeType: 'application/json',
+          responseJsonSchema: schema
         }
       })
     }
@@ -101,6 +97,7 @@ async function enrichBatchWithGemini({ apiKey, model, items }) {
 }
 
 function buildResponseSchema(items) {
+  const ids = items.map((item) => String(item.id));
   return {
     type: 'object',
     properties: {
@@ -111,17 +108,17 @@ function buildResponseSchema(items) {
           properties: {
             id: {
               type: 'string',
-              enum: items.map((item) => String(item.id))
+              enum: ids
             },
             level: {
-              type: ['string', 'null'],
-              enum: ['B1', 'B2', 'C1', 'C2', null]
+              type: 'string',
+              enum: ['B1', 'B2', 'C1', 'C2']
             },
             example: {
-              type: ['string', 'null']
+              type: 'string'
             },
             confidence: {
-              type: ['number', 'null']
+              type: 'number'
             }
           },
           required: ['id', 'level', 'example', 'confidence'],
