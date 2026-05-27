@@ -23,7 +23,7 @@ const STATUS_LABELS = {
 };
 const DEFAULT_LANGUAGES = ['English', 'German', 'Georgian'];
 const SUPABASE_FETCH_BATCH_SIZE = 1000;
-const AI_ENRICHMENT_BATCH_SIZE = 12;
+const AI_ENRICHMENT_BATCH_SIZE = 4;
 const LEGACY_PROGRESS_KEY = 'new-words-learn-progress-v2';
 const MIGRATION_FLAG_PREFIX = 'new-words-migrated';
 

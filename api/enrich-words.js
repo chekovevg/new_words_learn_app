@@ -61,7 +61,7 @@ async function enrichBatchWithGemini({ apiKey, model, items }) {
           temperature: 0.2,
           topP: 0.8,
           topK: 40,
-          maxOutputTokens: 2048,
+          maxOutputTokens: 4096,
           responseMimeType: 'application/json',
           responseJsonSchema: schema
         }
@@ -160,7 +160,7 @@ Rules:
 - Return one result for every input item.
 - Use CEFR levels only: B1, B2, C1, C2. If unsure, use null.
 - Write the example in natural English.
-- Keep examples concise and useful for a learner.
+- Keep examples very short, ideally 6 to 10 words.
 - If the input already has a level or example, you may improve the missing field only.
 - Do not include markdown or extra commentary.
 - Keep confidence between 0 and 1.
