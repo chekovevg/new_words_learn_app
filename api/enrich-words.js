@@ -41,12 +41,14 @@ export default async function handler(req, res) {
 
 async function enrichBatchWithGemini({ apiKey, model, items }) {
   const prompt = buildPrompt(items);
+  const schema = buildResponseSchema(items);
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
     {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-goog-api-key': apiKey
       },
       body: JSON.stringify({
         contents: [
@@ -60,7 +62,12 @@ async function enrichBatchWithGemini({ apiKey, model, items }) {
           topP: 0.8,
           topK: 40,
           maxOutputTokens: 2048,
-          responseMimeType: 'application/json'
+          responseFormat: {
+            text: {
+              mimeType: 'application/json',
+              schema
+            }
+          }
         }
       })
     }
@@ -78,9 +85,10 @@ async function enrichBatchWithGemini({ apiKey, model, items }) {
   }
 
   const parsed = safeParseJson(text);
-  const results = Array.isArray(parsed?.results) ? parsed.results : Array.isArray(parsed) ? parsed : [];
+  const results = normalizeResults(parsed, items);
   if (!results.length) {
-    throw new Error('Gemini returned no results');
+    const promptFeedback = data?.promptFeedback ? ` Prompt feedback: ${JSON.stringify(data.promptFeedback).slice(0, 200)}` : '';
+    throw new Error(`Gemini returned no results. Raw text: ${text.slice(0, 300)}.${promptFeedback}`);
   }
 
   return results.map((row) => ({
@@ -90,6 +98,40 @@ async function enrichBatchWithGemini({ apiKey, model, items }) {
     confidence: clampConfidence(row.confidence),
     source: 'gemini'
   }));
+}
+
+function buildResponseSchema(items) {
+  return {
+    type: 'object',
+    properties: {
+      results: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            id: {
+              type: 'string',
+              enum: items.map((item) => String(item.id))
+            },
+            level: {
+              type: ['string', 'null'],
+              enum: ['B1', 'B2', 'C1', 'C2', null]
+            },
+            example: {
+              type: ['string', 'null']
+            },
+            confidence: {
+              type: ['number', 'null']
+            }
+          },
+          required: ['id', 'level', 'example', 'confidence'],
+          additionalProperties: false
+        }
+      }
+    },
+    required: ['results'],
+    additionalProperties: false
+  };
 }
 
 function buildPrompt(items) {
@@ -137,6 +179,22 @@ function extractCandidateText(data) {
     .map((part) => (typeof part.text === 'string' ? part.text : ''))
     .join('')
     .trim();
+}
+
+function normalizeResults(parsed, items) {
+  const directResults = Array.isArray(parsed?.results) ? parsed.results : null;
+  if (directResults?.length) return directResults;
+
+  if (Array.isArray(parsed)) return parsed;
+
+  if (parsed && typeof parsed === 'object') {
+    const values = Object.values(parsed);
+    if (values.length === items.length && values.every((value) => value && typeof value === 'object')) {
+      return values;
+    }
+  }
+
+  return [];
 }
 
 function extractGeminiError(raw, status) {
