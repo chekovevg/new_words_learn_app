@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "node scripts/build-data.mjs && vite build",
     "data:build": "node scripts/build-data.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node --test"
   },
   "repository": {
     "type": "git",
@@ -17,18 +18,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^8.0.14",
-    "xlsx": "^0.18.5"
+    "vite": "^8.1.4"
   },
   "bugs": {
     "url": "https://github.com/chekovevg/new_words_learn_app/issues"
   },
   "homepage": "https://github.com/chekovevg/new_words_learn_app#readme",
   "dependencies": {
+    "@supabase/supabase-js": "^2.106.2",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
-    "@supabase/supabase-js": "^2.106.2",
     "mammoth": "^1.12.0",
-    "pdfjs-dist": "^5.7.284"
+    "pdfjs-dist": "^5.7.284",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
   }
 }

@@ -3,6 +3,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import xlsx from 'xlsx';
 
+xlsx.set_fs(fs);
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sourceDir = path.join(root, 'data', 'source');
 const outputJsonPath = path.join(root, 'src', 'data', 'words.json');

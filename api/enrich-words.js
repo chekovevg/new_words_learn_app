@@ -1,42 +1,112 @@
+import { createClient } from '@supabase/supabase-js';
+import {
+  extractBearerToken,
+  RequestValidationError,
+  validateEnrichmentItems
+} from './lib/enrichment-request.js';
+
 const DEFAULT_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 
 export const config = {
   maxDuration: 30
 };
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    res.status(405).json({ error: 'Method not allowed' });
-    return;
+export function createEnrichmentHandler({
+  verifyToken = verifySupabaseToken,
+  consumeQuota = consumeEnrichmentQuota,
+  enrichItems = enrichWithGemini,
+  logger = console
+} = {}) {
+  return async function handler(req, res) {
+    if (req.method !== 'POST') {
+      res.setHeader('Allow', 'POST');
+      res.status(405).json({ error: 'Method not allowed' });
+      return;
+    }
+
+    const token = extractBearerToken(req.headers);
+    if (!token) {
+      res.status(401).json({ error: 'Authentication required' });
+      return;
+    }
+
+    let items;
+    try {
+      items = validateEnrichmentItems(req.body?.items);
+    } catch (error) {
+      if (error instanceof RequestValidationError) {
+        res.status(400).json({ error: error.message });
+        return;
+      }
+      throw error;
+    }
+
+    try {
+      const authContext = await verifyToken(token);
+      if (!authContext?.user) {
+        res.status(401).json({ error: 'Invalid or expired access token' });
+        return;
+      }
+
+      const quotaAllowed = await consumeQuota(authContext, items.length);
+      if (!quotaAllowed) {
+        res.status(429).json({ error: 'Daily AI enrichment quota exhausted' });
+        return;
+      }
+
+      const results = await enrichItems(items);
+      res.status(200).json({ results });
+    } catch (error) {
+      logger.error?.('AI enrichment failed', error);
+      res.status(502).json({ error: 'AI enrichment service failed' });
+    }
+  };
+}
+
+export default createEnrichmentHandler();
+
+async function verifySupabaseToken(token) {
+  const url = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
+  const key =
+    process.env.SUPABASE_PUBLISHABLE_KEY ||
+    process.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
+    process.env.VITE_SUPABASE_ANON_KEY;
+  if (!url || !key) {
+    throw new Error('Missing Supabase server environment variables');
   }
 
+  const client = createClient(url, key, {
+    auth: {
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+      persistSession: false
+    },
+    global: {
+      headers: { Authorization: `Bearer ${token}` }
+    }
+  });
+  const { data, error } = await client.auth.getUser(token);
+  if (error || !data.user) return null;
+  return { user: data.user, client };
+}
+
+async function consumeEnrichmentQuota(authContext, requestedItems) {
+  const { data, error } = await authContext.client.rpc('consume_ai_enrichment_quota', {
+    requested_items: requestedItems
+  });
+  if (error) throw error;
+  return data === true;
+}
+
+async function enrichWithGemini(items) {
   const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
-  if (!apiKey) {
-    res.status(500).json({
-      error: 'Missing GEMINI_API_KEY environment variable'
-    });
-    return;
-  }
+  if (!apiKey) throw new Error('Missing GEMINI_API_KEY environment variable');
 
-  const items = Array.isArray(req.body?.items) ? req.body.items : [];
-  if (!items.length) {
-    res.status(400).json({ error: 'items must be a non-empty array' });
-    return;
-  }
-
-  try {
-    const results = await enrichBatchWithGemini({
-      apiKey,
-      model: DEFAULT_MODEL,
-      items
-    });
-
-    res.status(200).json({ results });
-  } catch (error) {
-    const message = error?.message || 'Gemini enrichment failed';
-    res.status(500).json({ error: message });
-  }
+  return enrichBatchWithGemini({
+    apiKey,
+    model: DEFAULT_MODEL,
+    items
+  });
 }
 
 async function enrichBatchWithGemini({ apiKey, model, items }) {
@@ -111,14 +181,16 @@ function buildResponseSchema(items) {
               enum: ids
             },
             level: {
-              type: 'string',
-              enum: ['B1', 'B2', 'C1', 'C2']
+              type: ['string', 'null'],
+              enum: ['B1', 'B2', 'C1', 'C2', null]
             },
             example: {
-              type: 'string'
+              type: ['string', 'null']
             },
             confidence: {
-              type: 'number'
+              type: 'number',
+              minimum: 0,
+              maximum: 1
             }
           },
           required: ['id', 'level', 'example', 'confidence'],

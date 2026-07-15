@@ -97,6 +97,14 @@ The app can call Gemini from a serverless Vercel function to enrich missing `lev
 Set these environment variables on Vercel:
 
 ```env
+VITE_SUPABASE_URL=https://YOUR-PROJECT.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+SUPABASE_URL=https://YOUR-PROJECT.supabase.co
+SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
 GEMINI_API_KEY=your_gemini_key
 GEMINI_MODEL=gemini-2.5-flash
 ```
+
+`SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` are used only by the serverless AI endpoint to verify the current user's access token. They can contain the same project URL and publishable key as the `VITE_` variables; never expose a `service_role` key.
+
+Deploy to Vercel when AI enrichment is enabled, because `/api/enrich-words` is a Vercel Function. A static GitHub Pages deployment can serve the vocabulary UI, but it cannot run that endpoint and therefore cannot provide AI enrichment.

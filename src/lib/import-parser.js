@@ -1,5 +1,7 @@
 import { clampString, normalizeText } from './word-utils.js';
 
+const MAX_IMPORT_FILE_SIZE = 10 * 1024 * 1024;
+
 const KNOWN_LANGUAGES = new Set([
   'english',
   'german',
@@ -22,11 +24,14 @@ const LINE_SEPARATORS = [
 ];
 
 export async function parseImportedRows(file) {
+  if (Number(file?.size) > MAX_IMPORT_FILE_SIZE) {
+    throw new Error('Файл слишком большой. Максимальный размер — 10 MB.');
+  }
+
   const format = detectFormat(file);
 
   if (format === 'spreadsheet') {
-    const rows = await parseSpreadsheetRows(file);
-    if (rows.length) return rows;
+    return parseSpreadsheetRows(file);
   } else if (format === 'pdf') {
     const text = await extractPdfText(file);
     return parseTextRows(text);
@@ -55,10 +60,10 @@ function detectFormat(file) {
 
   if (name.endsWith('.pdf') || type.includes('pdf')) return 'pdf';
   if (name.endsWith('.docx') || type.includes('word')) return 'docx';
-  if (name.endsWith('.txt') || type.startsWith('text/')) return 'text';
   if (name.endsWith('.csv') || name.endsWith('.xls') || name.endsWith('.xlsx') || type.includes('sheet')) {
     return 'spreadsheet';
   }
+  if (name.endsWith('.txt') || type.startsWith('text/')) return 'text';
 
   return 'unknown';
 }
@@ -109,10 +114,11 @@ function normalizeStructuredRow(row) {
 }
 
 function parseCellTableRows(tableRows) {
-  if (!Array.isArray(tableRows) || tableRows.length <= 1) return [];
+  if (!Array.isArray(tableRows) || tableRows.length === 0) return [];
 
   const rows = [];
-  for (const cells of tableRows.slice(1)) {
+  const dataRows = isHeaderRow(tableRows[0]) ? tableRows.slice(1) : tableRows;
+  for (const cells of dataRows) {
     const normalizedCells = Array.isArray(cells)
       ? cells.map((cell) => String(cell ?? '').trim()).filter(Boolean)
       : [];
@@ -122,6 +128,16 @@ function parseCellTableRows(tableRows) {
     }
   }
   return rows;
+}
+
+function isHeaderRow(cells) {
+  if (!Array.isArray(cells)) return false;
+  const names = cells.map((cell) => normalizeText(cell));
+  const hasWord = names.some((name) => ['word', 'слово', 'phrase', 'term', 'entry'].includes(name));
+  const hasTranslation = names.some((name) =>
+    ['translation', 'перевод', 'meaning', 'definition'].includes(name)
+  );
+  return hasWord && hasTranslation;
 }
 
 function normalizeCellsRow(cells) {

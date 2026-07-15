@@ -1,6 +1,6 @@
 import { inject } from '@vercel/analytics';
 import { injectSpeedInsights } from '@vercel/speed-insights';
-import seedWords from './data/words.js';
+import { resolveAuthTransition } from './lib/auth-transition.js';
 import { parseImportedRows } from './lib/import-parser.js';
 import { hasSupabaseConfig, supabase } from './lib/supabase.js';
 import {
@@ -26,6 +26,22 @@ const SUPABASE_FETCH_BATCH_SIZE = 1000;
 const AI_ENRICHMENT_BATCH_SIZE = 4;
 const LEGACY_PROGRESS_KEY = 'new-words-learn-progress-v2';
 const MIGRATION_FLAG_PREFIX = 'new-words-migrated';
+
+function createDefaultAddWordForm() {
+  return {
+    word: '',
+    translation: '',
+    language: 'English',
+    level: '',
+    example: ''
+  };
+}
+
+let seedWordsPromise;
+function loadSeedWords() {
+  seedWordsPromise ||= import('./data/words.js').then((module) => module.default);
+  return seedWordsPromise;
+}
 
 const state = {
   loading: true,
@@ -55,17 +71,12 @@ const state = {
     signUpEmail: '',
     signUpPassword: '',
     profileName: '',
-    addWord: {
-      word: '',
-      translation: '',
-      language: 'English',
-      level: '',
-      example: ''
-    }
+    addWord: createDefaultAddWordForm()
   }
 };
 
 const els = {};
+let authTransitionQueue = Promise.resolve();
 
 init();
 
@@ -84,12 +95,12 @@ async function init() {
     return;
   }
 
-  const {
-    data: { session }
-  } = await supabase.auth.getSession();
-
-  state.session = session;
   try {
+    const { data, error } = await supabase.auth.getSession();
+    if (error) throw error;
+
+    const session = data.session;
+    state.session = session;
     if (session) {
       await loadUserData(session.user.id);
       state.loadedUserId = session.user.id;
@@ -101,47 +112,66 @@ async function init() {
     render();
   }
 
-  supabase.auth.onAuthStateChange(async (_event, nextSession) => {
-    state.session = nextSession;
-    state.error = '';
-    state.message = '';
-    state.migrationEligible = false;
-    state.migrationInProgress = false;
-    state.modal = null;
-
-    if (nextSession) {
-      const nextUserId = nextSession.user.id;
-      if (state.loadedUserId === nextUserId) {
-        render();
-        return;
-      }
-
-      state.loading = true;
-      render();
-      try {
-        await loadUserData(nextUserId);
-        state.loadedUserId = nextUserId;
-      } catch (error) {
-        state.error = formatErrorMessage(error.message);
-        state.profile = null;
-        state.words = [];
-        state.adminProfiles = [];
-        state.adminWords = [];
-        state.loadedUserId = null;
-      } finally {
-        state.loading = false;
-      }
-    } else {
-      state.profile = null;
-      state.words = [];
-      state.adminProfiles = [];
-      state.adminWords = [];
-      state.loadedUserId = null;
-      state.loading = false;
-    }
-
-    render();
+  supabase.auth.onAuthStateChange((_event, nextSession) => {
+    setTimeout(() => handleAuthStateChange(nextSession), 0);
   });
+}
+
+function handleAuthStateChange(nextSession) {
+  authTransitionQueue = authTransitionQueue
+    .then(() => applyAuthStateChange(nextSession))
+    .catch((error) => {
+      state.error = formatErrorMessage(error.message);
+      clearLoadedUserData();
+      state.loading = false;
+      render();
+    });
+  return authTransitionQueue;
+}
+
+async function applyAuthStateChange(nextSession) {
+  state.session = nextSession;
+  state.error = '';
+  state.message = '';
+  state.migrationEligible = false;
+  state.migrationInProgress = false;
+  state.modal = null;
+
+  const transition = resolveAuthTransition(state.loadedUserId, nextSession);
+  if (transition === 'clear') {
+    clearLoadedUserData();
+    state.loading = false;
+    render();
+    return;
+  }
+
+  if (transition === 'reuse') {
+    state.loading = false;
+    render();
+    return;
+  }
+
+  state.loading = true;
+  render();
+  try {
+    const nextUserId = nextSession.user.id;
+    await loadUserData(nextUserId);
+    state.loadedUserId = nextUserId;
+  } catch (error) {
+    state.error = formatErrorMessage(error.message);
+    clearLoadedUserData();
+  } finally {
+    state.loading = false;
+    render();
+  }
+}
+
+function clearLoadedUserData() {
+  state.profile = null;
+  state.words = [];
+  state.adminProfiles = [];
+  state.adminWords = [];
+  state.loadedUserId = null;
 }
 
 function render() {
@@ -752,47 +782,56 @@ async function handleSubmit(event) {
 async function signIn(form) {
   setBusy(true);
   clearStatus();
-  const email = form.elements.email.value.trim();
-  const password = form.elements.password.value;
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-  if (error) {
+  try {
+    const email = form.elements.email.value.trim();
+    const password = form.elements.password.value;
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      setError(error.message);
+    } else {
+      state.message = 'Вход выполнен.';
+      state.loadedUserId = null;
+    }
+  } catch (error) {
     setError(error.message);
-  } else {
-    state.message = 'Вход выполнен.';
-    state.loadedUserId = null;
+  } finally {
+    setBusy(false);
+    render();
   }
-  setBusy(false);
-  render();
 }
 
 async function signUp(form) {
   setBusy(true);
   clearStatus();
-  const name = form.elements.name.value.trim();
-  const email = form.elements.email.value.trim();
-  const password = form.elements.password.value;
-  const emailRedirectTo = `${window.location.origin}/`;
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: { name },
-      emailRedirectTo
+  try {
+    const name = form.elements.name.value.trim();
+    const email = form.elements.email.value.trim();
+    const password = form.elements.password.value;
+    const emailRedirectTo = new URL(import.meta.env.BASE_URL, window.location.href).toString();
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { name },
+        emailRedirectTo
+      }
+    });
+
+    if (error) {
+      setError(error.message);
+    } else if (!data.session) {
+      state.message = 'Аккаунт создан. Проверьте почту для подтверждения входа.';
+      state.authView = 'signin';
+    } else {
+      state.message = 'Аккаунт создан и вы вошли в систему.';
+      state.loadedUserId = null;
     }
-  });
-
-  if (error) {
+  } catch (error) {
     setError(error.message);
-  } else if (!data.session) {
-    state.message = 'Аккаунт создан. Проверьте почту для подтверждения входа.';
-    state.authView = 'signin';
-  } else {
-    state.message = 'Аккаунт создан и вы вошли в систему.';
-    state.loadedUserId = data.session.user.id;
+  } finally {
+    setBusy(false);
+    render();
   }
-
-  setBusy(false);
-  render();
 }
 
 async function loadUserData(userId) {
@@ -817,8 +856,7 @@ async function loadUserData(userId) {
     const { error: insertError } = await supabase.from('profiles').insert({
       id: userId,
       email: user?.email || '',
-      name: fallbackName,
-      role: 'user'
+      name: fallbackName
     });
     if (insertError) {
       throw new Error(insertError.message);
@@ -910,31 +948,33 @@ async function importLegacyWords() {
 
   state.migrationInProgress = true;
   render();
+  try {
+    const seedWords = await loadSeedWords();
+    const learned = loadLegacyProgress();
+    const rows = seedWords.map((item, index) => ({
+      user_id: state.session.user.id,
+      word: item.word,
+      translation: item.translation,
+      language: item.language || 'English',
+      level: item.level || null,
+      example: item.example || null,
+      source: 'legacy',
+      confidence: null,
+      enriched: false,
+      learned: learned.has(item.id),
+      word_key: makeWordKey(item.word, item.language),
+      language_key: normalizeText(item.language || 'English'),
+      sort_order: index
+    }));
 
-  const learned = loadLegacyProgress();
-  const rows = seedWords.map((item, index) => ({
-    user_id: state.session.user.id,
-    word: item.word,
-    translation: item.translation,
-    language: item.language || 'English',
-    level: item.level || null,
-    example: item.example || null,
-    source: 'legacy',
-    confidence: null,
-    enriched: false,
-    learned: learned.has(item.id),
-    word_key: makeWordKey(item.word, item.language),
-    language_key: normalizeText(item.language || 'English'),
-    sort_order: index
-  }));
-
-  await upsertWordRows(rows);
-  state.migrationInProgress = false;
-
-  markMigrated(state.session.user.id);
-  state.message = `Импортировано ${rows.length} слов в ваш аккаунт.`;
-  await loadUserData(state.session.user.id);
-  render();
+    await upsertWordRows(rows);
+    markMigrated(state.session.user.id);
+    state.message = `Импортировано ${rows.length} слов в ваш аккаунт.`;
+    await loadUserData(state.session.user.id);
+  } finally {
+    state.migrationInProgress = false;
+    render();
+  }
 }
 
 async function importAdminLegacyHtmlWords() {
@@ -949,6 +989,7 @@ async function importAdminLegacyHtmlWords() {
   state.adminLegacyImportInProgress = true;
   render();
   try {
+    const seedWords = await loadSeedWords();
     const learned = loadLegacyProgress();
     const englishLegacyRows = seedWords.filter(
       (item) => item.language === 'English' && (item.level || item.example)
@@ -1100,9 +1141,7 @@ async function addWord(form) {
     setError(error.message);
   } else {
     state.message = existing ? 'Слово обновлено.' : 'Слово добавлено.';
-    form.reset();
-    form.elements.language.value = 'English';
-    form.elements.level.value = '';
+    state.forms.addWord = createDefaultAddWordForm();
     await loadUserData(state.session.user.id);
   }
 
@@ -1271,11 +1310,15 @@ async function enrichCurrentWords({ announce = true } = {}) {
 
 async function requestAiEnrichment(items) {
   if (!Array.isArray(items) || !items.length) return [];
+  if (!state.session?.access_token) {
+    throw new Error('Сессия истекла. Войдите снова.');
+  }
 
   const response = await fetch('/api/enrich-words', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${state.session.access_token}`
     },
     body: JSON.stringify({
       items: items.map((item) => ({
@@ -1319,160 +1362,6 @@ function normalizeConfidence(value) {
   if (numeric < 0) return 0;
   if (numeric > 1) return 1;
   return Math.round(numeric * 100) / 100;
-}
-
-function buildEnrichedWordPayload(item, index, match, { onlyMissing = true, force = false } = {}) {
-  const nextLevel = item.level || clampString(match.level, null);
-  const nextExample = item.example || clampString(match.example, null);
-
-  if (!force && onlyMissing && nextLevel === item.level && nextExample === item.example) {
-    return null;
-  }
-
-  return {
-    user_id: item.user_id,
-    word: item.word,
-    translation: item.translation,
-    language: item.language || 'English',
-    level: nextLevel,
-    example: nextExample,
-    enriched: true,
-    learned: Boolean(item.learned),
-    word_key: item.word_key || makeWordKey(item.word, item.language),
-    language_key: item.language_key || normalizeText(item.language || 'English'),
-    sort_order: Number.isFinite(Number(item.sort_order)) ? Number(item.sort_order) : index
-  };
-}
-
-function buildHeuristicEnrichmentPayload(item, index, { onlyMissing = true, force = false } = {}) {
-  if (!force && onlyMissing && item.level && item.example) return null;
-
-  const nextLevel = item.level || estimateHeuristicLevel(item.word, item.translation, item.language);
-  const nextExample = item.example || buildHeuristicExample(item.word, item.language);
-
-  if (!force && onlyMissing && nextLevel === item.level && nextExample === item.example) {
-    return null;
-  }
-
-  return {
-    user_id: item.user_id,
-    word: item.word,
-    translation: item.translation,
-    language: item.language || 'English',
-    level: nextLevel,
-    example: nextExample,
-    enriched: true,
-    learned: Boolean(item.learned),
-    word_key: item.word_key || makeWordKey(item.word, item.language),
-    language_key: item.language_key || normalizeText(item.language || 'English'),
-    sort_order: Number.isFinite(Number(item.sort_order)) ? Number(item.sort_order) : index
-  };
-}
-
-function findLegacyEnrichmentMatch(word, language, translation) {
-  const key = makeWordKey(word, language);
-  const candidates = legacyWordIndex.get(key) || [];
-  const wordOnlyCandidates = legacyWordIndex.get(normalizeText(word)) || [];
-  const pool = candidates.length ? candidates : wordOnlyCandidates;
-  if (!pool.length) return null;
-
-  const normalizedTranslation = normalizeText(translation);
-  const looseTranslation = normalizeLooseText(translation);
-
-  const exactTranslationMatch = pool.find((item) => normalizeText(item.translation) === normalizedTranslation);
-  if (exactTranslationMatch) return exactTranslationMatch;
-
-  const looseExactMatch = pool.find((item) => normalizeLooseText(item.translation) === looseTranslation);
-  if (looseExactMatch) return looseExactMatch;
-
-  if (pool.length === 1) return pool[0];
-
-  let bestMatch = null;
-  let bestScore = -1;
-  for (const candidate of pool) {
-    const score = scoreLegacyMatch(candidate, word, language, translation);
-    if (score > bestScore) {
-      bestScore = score;
-      bestMatch = candidate;
-    }
-  }
-
-  return bestScore > 0 ? bestMatch : null;
-}
-
-function buildLegacyWordIndex() {
-  const index = new Map();
-  for (const item of seedWords) {
-    const wordKey = makeWordKey(item.word, item.language);
-    const wordOnlyKey = normalizeText(item.word);
-    const exactBucket = index.get(wordKey);
-    if (exactBucket) {
-      exactBucket.push(item);
-    } else {
-      index.set(wordKey, [item]);
-    }
-
-    const looseBucket = index.get(wordOnlyKey);
-    if (looseBucket) {
-      looseBucket.push(item);
-    } else {
-      index.set(wordOnlyKey, [item]);
-    }
-  }
-  return index;
-}
-
-function normalizeLooseText(value) {
-  return String(value ?? '')
-    .toLowerCase()
-    .replace(/["'’“”.,;:!?()[\]{}]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-function scoreLegacyMatch(candidate, word, language, translation) {
-  let score = 0;
-  if (normalizeText(candidate.word) === normalizeText(word)) score += 6;
-  if (normalizeText(candidate.language) === normalizeText(language)) score += 3;
-
-  const candidateTranslation = normalizeText(candidate.translation);
-  const normalizedTranslation = normalizeText(translation);
-  const looseCandidateTranslation = normalizeLooseText(candidate.translation);
-  const looseTranslation = normalizeLooseText(translation);
-
-  if (candidateTranslation === normalizedTranslation) score += 12;
-  if (looseCandidateTranslation === looseTranslation) score += 8;
-
-  const candidateTokens = new Set(looseCandidateTranslation.split(' ').filter(Boolean));
-  const translationTokens = new Set(looseTranslation.split(' ').filter(Boolean));
-  let overlap = 0;
-  for (const token of translationTokens) {
-    if (candidateTokens.has(token)) overlap += 1;
-  }
-
-  score += overlap;
-  return score;
-}
-
-function estimateHeuristicLevel(word, translation, language) {
-  const wordText = normalizeLooseText(word);
-  const translationText = normalizeLooseText(translation);
-  const combinedLength = Math.max(wordText.length, translationText.length);
-  const phrasePenalty = wordText.includes(' ') ? 1 : 0;
-  const languageBonus = normalizeText(language) === 'english' ? 0 : 1;
-  const score = combinedLength + phrasePenalty * 4 + languageBonus * 2;
-
-  if (score <= 6) return 'B1';
-  if (score <= 10) return 'B2';
-  if (score <= 16) return 'C1';
-  return 'C2';
-}
-
-function buildHeuristicExample(word, language) {
-  const label = String(word ?? '').trim().replace(/"/g, '”');
-  const noun = label.includes(' ') ? 'phrase' : 'word';
-  const lang = clampString(language, 'English');
-  return `The ${noun} "${label}" appeared in the ${lang} notes.`;
 }
 
 async function updateLearnedState(target) {
