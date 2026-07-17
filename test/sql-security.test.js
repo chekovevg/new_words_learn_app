@@ -7,8 +7,12 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const initPath = path.join(root, 'supabase', 'migrations', '20260526_init.sql');
 const hardeningPath = path.join(root, 'supabase', 'migrations', '20260715_release_hardening.sql');
+const russianTranslationOnlyPath = path.join(root, 'supabase', 'migrations', '20260718_russian_translation_only.sql');
 const initSql = readFileSync(initPath, 'utf8');
 const hardeningSql = existsSync(hardeningPath) ? readFileSync(hardeningPath, 'utf8') : '';
+const russianTranslationOnlySql = existsSync(russianTranslationOnlyPath)
+  ? readFileSync(russianTranslationOnlyPath, 'utf8')
+  : '';
 
 test('does not grant authenticated users table-wide profile writes', () => {
   assert.doesNotMatch(
@@ -43,4 +47,10 @@ test('adds an authenticated and atomic daily AI quota', () => {
 test('protects the final administrator from deletion or demotion', () => {
   assert.match(hardeningSql, /Cannot delete the final admin/);
   assert.match(hardeningSql, /Cannot demote the final admin/);
+});
+
+test('prevents Russian from being stored as a card language', () => {
+  assert.ok(existsSync(russianTranslationOnlyPath), 'Russian translation-only migration must exist');
+  assert.match(russianTranslationOnlySql, /add\s+constraint\s+words_language_not_russian_check/i);
+  assert.match(russianTranslationOnlySql, /<>\s*'russian'/i);
 });

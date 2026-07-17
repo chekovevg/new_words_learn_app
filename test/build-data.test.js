@@ -17,6 +17,11 @@ test('builds vocabulary data with the installed SheetJS ESM package', () => {
   assert.match(result.stdout, /Wrote \d+ words/);
 
   const rows = JSON.parse(fs.readFileSync(path.join(root, 'src/data/words.json'), 'utf8'));
+  assert.deepEqual(
+    rows.filter((row) => row.language === 'Russian'),
+    [],
+    'Russian must only be used as the translation language'
+  );
   const auditedEnglishWords = new Set([
     'bailing',
     'bandwith',

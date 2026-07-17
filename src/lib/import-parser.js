@@ -102,12 +102,13 @@ function normalizeStructuredRow(row) {
   const word = pickField(row, ['word', 'слово', 'phrase', 'term', 'entry']);
   const translation = pickField(row, ['translation', 'перевод', 'meaning', 'definition']);
   const language = pickField(row, ['language', 'язык', 'lang', 'source language', 'source_language']);
+  const targetLanguage = pickField(row, ['target language', 'target_language', 'translation language']);
   const level = pickField(row, ['level', 'уровень']);
   const example = pickField(row, ['example', 'пример', 'sentence']);
   const learned = pickField(row, ['learned', 'выучено', 'status']);
 
   if (word && translation) {
-    return normalizeRow({ word, translation, language, level, example, learned });
+    return normalizeRow({ word, translation, language, targetLanguage, level, example, learned });
   }
 
   return emptyRow();
@@ -144,6 +145,7 @@ function normalizeCellsRow(cells) {
   if (cells.length >= 4 && isLikelyLanguage(cells[0]) && isLikelyLanguage(cells[1])) {
     return normalizeRow({
       language: cells[0],
+      targetLanguage: cells[1],
       word: cells[2],
       translation: cells[3]
     });
@@ -306,15 +308,38 @@ function normalizeRow(row) {
   const word = clampString(row.word);
   const translation = clampString(row.translation);
   const language = clampString(row.language, 'English');
+  const level = clampString(row.level, null);
+  const example = clampString(row.example, null);
+  const learned = clampString(row.learned, null);
+
+  if (normalizeText(language) === 'russian') {
+    const requestedTargetLanguage = clampString(row.targetLanguage, inferLanguage(translation));
+    const targetLanguage = normalizeText(requestedTargetLanguage) === 'russian'
+      ? inferLanguage(translation)
+      : requestedTargetLanguage;
+
+    return {
+      word: translation,
+      translation: word,
+      language: targetLanguage,
+      level,
+      example,
+      learned
+    };
+  }
 
   return {
     word,
     translation,
     language,
-    level: clampString(row.level, null),
-    example: clampString(row.example, null),
-    learned: clampString(row.learned, null)
+    level,
+    example,
+    learned
   };
+}
+
+function inferLanguage(value) {
+  return /[\u10A0-\u10FF]/u.test(String(value ?? '')) ? 'Georgian' : 'English';
 }
 
 function cleanLine(value) {

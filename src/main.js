@@ -1123,6 +1123,11 @@ async function addWord(form) {
     return;
   }
 
+  if (normalizeText(language) === 'russian') {
+    setError('Русский — только язык перевода. Укажите язык слова.');
+    return;
+  }
+
   const existing = findWordByKey(word, language);
   const payload = {
     user_id: state.session.user.id,

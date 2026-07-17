@@ -52,6 +52,20 @@ test('does not import a header-only workbook as vocabulary', async () => {
   assert.deepEqual(await parseImportedRows(file), []);
 });
 
+test('reverses Russian source rows so Russian remains the translation language', async () => {
+  const russian = '\u043f\u043e\u0434\u0432\u043e\u0434\u043d\u044b\u0435 \u043a\u0430\u043c\u043d\u0438';
+  const file = createWorkbookFile([['Russian', 'English', russian, 'pitfalls']]);
+
+  assert.deepEqual(await parseImportedRows(file), [{
+    word: 'pitfalls',
+    translation: russian,
+    language: 'English',
+    level: null,
+    example: null,
+    learned: null
+  }]);
+});
+
 test('rejects an import larger than ten MiB', async () => {
   const file = {
     name: 'large.txt',
