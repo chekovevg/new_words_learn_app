@@ -1,6 +1,7 @@
 import { inject } from '@vercel/analytics';
 import { injectSpeedInsights } from '@vercel/speed-insights';
 import { resolveAuthTransition } from './lib/auth-transition.js';
+import { fetchAllSupabaseRows } from './lib/fetch-all-supabase-rows.js';
 import { parseImportedRows } from './lib/import-parser.js';
 import { hasSupabaseConfig, supabase } from './lib/supabase.js';
 import {
@@ -22,7 +23,6 @@ const STATUS_LABELS = {
   unknown: 'Не выученные'
 };
 const DEFAULT_LANGUAGES = ['English', 'German', 'Georgian'];
-const SUPABASE_FETCH_BATCH_SIZE = 1000;
 const AI_ENRICHMENT_BATCH_SIZE = 4;
 const LEGACY_PROGRESS_KEY = 'new-words-learn-progress-v2';
 const MIGRATION_FLAG_PREFIX = 'new-words-migrated';
@@ -62,6 +62,7 @@ const state = {
   migrationEligible: false,
   migrationInProgress: false,
   adminLoading: false,
+  adminBackgroundRefreshUserId: null,
   loadedUserId: null,
   modal: null,
   forms: {
@@ -171,6 +172,7 @@ function clearLoadedUserData() {
   state.words = [];
   state.adminProfiles = [];
   state.adminWords = [];
+  state.adminBackgroundRefreshUserId = null;
   state.loadedUserId = null;
 }
 
@@ -190,6 +192,29 @@ function render() {
   cacheElements();
   syncFormState();
   renderWords();
+  scheduleAdminRefresh();
+}
+
+function scheduleAdminRefresh() {
+  const userId = state.loadedUserId;
+  if (
+    !userId ||
+    state.profile?.role !== 'admin' ||
+    state.adminLoading ||
+    state.adminBackgroundRefreshUserId === userId
+  ) {
+    return;
+  }
+
+  state.adminBackgroundRefreshUserId = userId;
+  setTimeout(async () => {
+    if (state.loadedUserId !== userId || state.profile?.role !== 'admin') return;
+    try {
+      await refreshAdminData(false);
+    } catch (error) {
+      setError(error.message);
+    }
+  }, 0);
 }
 
 function openModal(name) {
@@ -835,12 +860,13 @@ async function signUp(form) {
 }
 
 async function loadUserData(userId) {
+  const isNewUser = state.loadedUserId !== userId;
   const [{ data: profile, error: profileError }, words] = await Promise.all([
     supabase.from('profiles').select('*').eq('id', userId).maybeSingle(),
-    fetchAllSupabaseRows(() =>
+    fetchAllSupabaseRows((selectOptions) =>
       supabase
         .from('words')
-        .select('*')
+        .select('*', selectOptions)
         .eq('user_id', userId)
         .order('sort_order', { ascending: true })
         .order('created_at', { ascending: true })
@@ -875,11 +901,10 @@ async function loadUserData(userId) {
   state.words = (words || []).map(normalizeRemoteWord);
   state.migrationEligible = hasLegacySeed() && state.words.length === 0;
 
-  if (state.profile.role === 'admin') {
-    await refreshAdminData(false);
-  } else {
+  if (state.profile.role !== 'admin' || isNewUser) {
     state.adminProfiles = [];
     state.adminWords = [];
+    state.adminBackgroundRefreshUserId = null;
   }
 }
 
@@ -893,24 +918,6 @@ function normalizeRemoteWord(word) {
     source: clampString(word.source, null),
     confidence: normalizeConfidence(word.confidence)
   };
-}
-
-async function fetchAllSupabaseRows(queryFactory) {
-  const rows = [];
-  for (let from = 0; ; from += SUPABASE_FETCH_BATCH_SIZE) {
-    const to = from + SUPABASE_FETCH_BATCH_SIZE - 1;
-    const { data, error } = await queryFactory().range(from, to);
-    if (error) {
-      throw new Error(error.message);
-    }
-
-    const batch = data || [];
-    rows.push(...batch);
-    if (batch.length < SUPABASE_FETCH_BATCH_SIZE) {
-      break;
-    }
-  }
-  return rows;
 }
 
 function hasLegacySeed() {
@@ -1053,8 +1060,11 @@ async function refreshAdminData(showMessage = true) {
   state.adminLoading = true;
   const [{ data: profiles, error: profilesError }, words] = await Promise.all([
     supabase.from('profiles').select('*').order('created_at', { ascending: true }),
-    fetchAllSupabaseRows(() =>
-      supabase.from('words').select('id, user_id, learned').order('created_at', { ascending: true })
+    fetchAllSupabaseRows((selectOptions) =>
+      supabase
+        .from('words')
+        .select('id, user_id, learned', selectOptions)
+        .order('created_at', { ascending: true })
     )
   ]);
 

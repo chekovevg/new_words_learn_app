@@ -45,3 +45,14 @@ test('does not import the legacy seed eagerly', () => {
 test('does not preserve an obsolete browser import map', () => {
   assert.doesNotMatch(indexSource, /type=["']importmap["']/);
 });
+
+test('does not block the initial dictionary on the admin-wide refresh', () => {
+  const loadUserData = mainSource.match(/async function loadUserData\(userId\) \{[\s\S]*?\n\}/)?.[0] || '';
+  assert.ok(loadUserData, 'expected loadUserData');
+  assert.doesNotMatch(loadUserData, /refreshAdminData\(/);
+});
+
+test('starts the automatic admin refresh only after the dictionary render', () => {
+  assert.match(mainSource, /renderWords\(\);\s*scheduleAdminRefresh\(\);/);
+  assert.match(mainSource, /setTimeout\(async \(\) => \{[\s\S]*?refreshAdminData\(false\)/);
+});
