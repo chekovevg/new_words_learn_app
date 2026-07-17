@@ -66,6 +66,11 @@ test('reverses Russian source rows so Russian remains the translation language',
   }]);
 });
 
+test('rejects imports whose translation language is not Russian', async () => {
+  const file = createWorkbookFile([['German', 'English', 'zum Beispiel', 'for example']]);
+  await assert.rejects(() => parseImportedRows(file), /translation language must be Russian/i);
+});
+
 test('rejects an import larger than ten MiB', async () => {
   const file = {
     name: 'large.txt',

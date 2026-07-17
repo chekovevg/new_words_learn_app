@@ -27192,9 +27192,9 @@ const words = [
   {
     "id": 2720,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "a little",
-    "translation": "ცოტა",
+    "translation": "немного",
     "level": null,
     "example": null,
     "learned": false
@@ -27402,9 +27402,9 @@ const words = [
   {
     "id": 2741,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "after",
-    "translation": "შემდეგ",
+    "translation": "после",
     "level": null,
     "example": null,
     "learned": false
@@ -27422,9 +27422,9 @@ const words = [
   {
     "id": 2743,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "agree",
-    "translation": "ვეთანხმები",
+    "translation": "соглашаться",
     "level": null,
     "example": null,
     "learned": false
@@ -27962,9 +27962,9 @@ const words = [
   {
     "id": 2797,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "beer",
-    "translation": "ლუდი",
+    "translation": "пиво",
     "level": null,
     "example": null,
     "learned": false
@@ -28222,9 +28222,9 @@ const words = [
   {
     "id": 2823,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "breakfast",
-    "translation": "საუზმე",
+    "translation": "завтрак",
     "level": null,
     "example": null,
     "learned": false
@@ -28432,9 +28432,9 @@ const words = [
   {
     "id": 2844,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "can i pay for this tomorrow",
-    "translation": "შემიძლია გადავიხადო ეს ხვალ",
+    "targetLanguage": "Russian",
+    "word": "Can I pay for this tomorrow?",
+    "translation": "могу я заплатить за это завтра?",
     "level": null,
     "example": null,
     "learned": false
@@ -28442,9 +28442,9 @@ const words = [
   {
     "id": 2845,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "can i take it out?",
-    "translation": "შემიძლია გამოვიტანო?",
+    "targetLanguage": "Russian",
+    "word": "Can I take it out?",
+    "translation": "могу я это вынести?",
     "level": null,
     "example": null,
     "learned": false
@@ -28452,9 +28452,9 @@ const words = [
   {
     "id": 2846,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "can we order?",
-    "translation": "შეგვიძლია შეკვეთა?",
+    "targetLanguage": "Russian",
+    "word": "Can we leave it here?",
+    "translation": "можем мы оставить это здесь?",
     "level": null,
     "example": null,
     "learned": false
@@ -28462,9 +28462,9 @@ const words = [
   {
     "id": 2847,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "can we quit here",
-    "translation": "შეგვიძლია აქ დავტოვოთ",
+    "targetLanguage": "Russian",
+    "word": "Can we order?",
+    "translation": "можем мы заказать?",
     "level": null,
     "example": null,
     "learned": false
@@ -28472,9 +28472,9 @@ const words = [
   {
     "id": 2848,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "can you heat one croissant",
-    "translation": "შეგიძლიათ ერთი კრუასანი გააცხელოთ",
+    "targetLanguage": "Russian",
+    "word": "Can you heat up one croissant?",
+    "translation": "можете разогреть один круассан?",
     "level": null,
     "example": null,
     "learned": false
@@ -28482,9 +28482,9 @@ const words = [
   {
     "id": 2849,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "can you help me",
-    "translation": "შეგიძლიათ დამეხმაროთ",
+    "targetLanguage": "Russian",
+    "word": "Can you help me?",
+    "translation": "можете мне помочь?",
     "level": null,
     "example": null,
     "learned": false
@@ -29582,9 +29582,9 @@ const words = [
   {
     "id": 2959,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "do you have table for three",
-    "translation": "გაქვთ მაგიდა სამისთვის?",
+    "targetLanguage": "Russian",
+    "word": "Do you have a table for three?",
+    "translation": "у вас есть столик на троих?",
     "level": null,
     "example": null,
     "learned": false
@@ -29602,9 +29602,9 @@ const words = [
   {
     "id": 2961,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "do you spek english",
-    "translation": "ინგლისურად ლაპარაკობ",
+    "targetLanguage": "Russian",
+    "word": "Do you speak English?",
+    "translation": "вы говорите по-английски?",
     "level": null,
     "example": null,
     "learned": false
@@ -29762,9 +29762,9 @@ const words = [
   {
     "id": 2977,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "egg",
-    "translation": "კვერცხი",
+    "translation": "яйцо",
     "level": null,
     "example": null,
     "learned": false
@@ -29932,16 +29932,6 @@ const words = [
   {
     "id": 2994,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "ery delicious",
-    "translation": "ძალიან გემრიელი",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
-    "id": 2995,
-    "language": "English",
     "targetLanguage": "Russian",
     "word": "ery much not",
     "translation": "совсем нет",
@@ -29950,7 +29940,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 2996,
+    "id": 2995,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "even if yourh heart aches agaunst it",
@@ -29960,7 +29950,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 2997,
+    "id": 2996,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "even/odd",
@@ -29970,7 +29960,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 2998,
+    "id": 2997,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ever-gifted",
@@ -29980,7 +29970,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 2999,
+    "id": 2998,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "evoke",
@@ -29990,7 +29980,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3000,
+    "id": 2999,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "evolves over time",
@@ -30000,7 +29990,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3001,
+    "id": 3000,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "excessive",
@@ -30010,7 +30000,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3002,
+    "id": 3001,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "expenditure",
@@ -30020,7 +30010,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3003,
+    "id": 3002,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "exuberant",
@@ -30030,7 +30020,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3004,
+    "id": 3003,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "exuberant physical strength or mental vigor",
@@ -30040,7 +30030,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3005,
+    "id": 3004,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "eyelids",
@@ -30050,17 +30040,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3006,
+    "id": 3005,
     "language": "English",
-    "targetLanguage": "English",
+    "targetLanguage": "Russian",
     "word": "eyesight",
-    "translation": "eyesight",
+    "translation": "зрение",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3007,
+    "id": 3006,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "facet cut",
@@ -30070,7 +30060,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3008,
+    "id": 3007,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "facetious",
@@ -30080,7 +30070,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3009,
+    "id": 3008,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "factions",
@@ -30090,7 +30080,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3010,
+    "id": 3009,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fallout",
@@ -30100,7 +30090,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3011,
+    "id": 3010,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "famish",
@@ -30110,7 +30100,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3012,
+    "id": 3011,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "famished",
@@ -30120,7 +30110,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3013,
+    "id": 3012,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fancied himself",
@@ -30130,7 +30120,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3014,
+    "id": 3013,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fashion staple",
@@ -30140,7 +30130,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3015,
+    "id": 3014,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fasten to the wall",
@@ -30150,7 +30140,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3016,
+    "id": 3015,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fastitiousnes",
@@ -30160,7 +30150,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3017,
+    "id": 3016,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "feasible",
@@ -30170,7 +30160,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3018,
+    "id": 3017,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "febauchery",
@@ -30180,7 +30170,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3019,
+    "id": 3018,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "feeeling under the wather",
@@ -30190,7 +30180,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3020,
+    "id": 3019,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fence me in",
@@ -30200,7 +30190,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3021,
+    "id": 3020,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fend for myself",
@@ -30210,7 +30200,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3022,
+    "id": 3021,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fenugreek",
@@ -30220,7 +30210,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3023,
+    "id": 3022,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fern",
@@ -30230,7 +30220,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3024,
+    "id": 3023,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fidelity",
@@ -30240,7 +30230,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3025,
+    "id": 3024,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "figment",
@@ -30250,7 +30240,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3026,
+    "id": 3025,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "filing nails",
@@ -30260,7 +30250,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3027,
+    "id": 3026,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "finesse",
@@ -30270,7 +30260,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3028,
+    "id": 3027,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "first off",
@@ -30280,7 +30270,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3029,
+    "id": 3028,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fixtures",
@@ -30290,7 +30280,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3030,
+    "id": 3029,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "flabby",
@@ -30300,7 +30290,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3031,
+    "id": 3030,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "flare",
@@ -30310,7 +30300,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3032,
+    "id": 3031,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "flat fee clients",
@@ -30320,7 +30310,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3033,
+    "id": 3032,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "flattery",
@@ -30330,7 +30320,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3034,
+    "id": 3033,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "flawed",
@@ -30340,7 +30330,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3035,
+    "id": 3034,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fling",
@@ -30350,7 +30340,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3036,
+    "id": 3035,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fluck",
@@ -30360,7 +30350,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3037,
+    "id": 3036,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "flurry of delivities",
@@ -30370,7 +30360,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3038,
+    "id": 3037,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fond",
@@ -30380,7 +30370,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3039,
+    "id": 3038,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "footbal cleats",
@@ -30390,17 +30380,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3040,
+    "id": 3039,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "For one trip",
-    "translation": "ერთი მოგზაურობისთვის",
+    "targetLanguage": "Russian",
+    "word": "for one trip",
+    "translation": "на одну поездку",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3041,
+    "id": 3040,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "foster",
@@ -30410,7 +30400,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3042,
+    "id": 3041,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "foster kittens",
@@ -30420,7 +30410,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3043,
+    "id": 3042,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "foundry",
@@ -30430,7 +30420,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3044,
+    "id": 3043,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "foundryman",
@@ -30440,7 +30430,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3045,
+    "id": 3044,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fudge",
@@ -30450,7 +30440,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3046,
+    "id": 3045,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fuses",
@@ -30460,7 +30450,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3047,
+    "id": 3046,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "fusion core",
@@ -30470,7 +30460,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3048,
+    "id": 3047,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "futile",
@@ -30480,7 +30470,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3049,
+    "id": 3048,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "futility",
@@ -30490,7 +30480,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3050,
+    "id": 3049,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Garnish",
@@ -30500,7 +30490,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3051,
+    "id": 3050,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Gas stove",
@@ -30510,7 +30500,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3052,
+    "id": 3051,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "gave up direct conytrol",
@@ -30520,7 +30510,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3053,
+    "id": 3052,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "geezer",
@@ -30530,7 +30520,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3054,
+    "id": 3053,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "General admission",
@@ -30540,7 +30530,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3055,
+    "id": 3054,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "get a backbone",
@@ -30550,7 +30540,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3056,
+    "id": 3055,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "get drafted for",
@@ -30560,7 +30550,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3057,
+    "id": 3056,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "get on with it",
@@ -30570,7 +30560,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3058,
+    "id": 3057,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ghouls",
@@ -30580,27 +30570,27 @@ const words = [
     "learned": false
   },
   {
+    "id": 3058,
+    "language": "English",
+    "targetLanguage": "Russian",
+    "word": "ginger",
+    "translation": "имбирь",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
     "id": 3059,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "ginger",
-    "translation": "ჯანჯაფილი",
+    "targetLanguage": "Russian",
+    "word": "ginger tea",
+    "translation": "имбирный чай",
     "level": null,
     "example": null,
     "learned": false
   },
   {
     "id": 3060,
-    "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "ginger tea",
-    "translation": "ჯანჯაფილის ჩაი",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
-    "id": 3061,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "glossy",
@@ -30610,7 +30600,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3062,
+    "id": 3061,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "glum",
@@ -30620,17 +30610,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3063,
+    "id": 3062,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "go",
-    "translation": "წადი",
+    "translation": "идти",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3064,
+    "id": 3063,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "go hand in hand",
@@ -30640,7 +30630,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3065,
+    "id": 3064,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "gobbledegok",
@@ -30650,7 +30640,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3066,
+    "id": 3065,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "gobbler",
@@ -30660,7 +30650,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3067,
+    "id": 3066,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "goshdarn",
@@ -30670,7 +30660,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3068,
+    "id": 3067,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "goshdarn truth",
@@ -30680,7 +30670,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3069,
+    "id": 3068,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "grasping at straw here",
@@ -30690,7 +30680,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3070,
+    "id": 3069,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "grating the cheese",
@@ -30700,7 +30690,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3071,
+    "id": 3070,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "grease",
@@ -30710,7 +30700,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3072,
+    "id": 3071,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "great deal of a curent",
@@ -30720,7 +30710,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3073,
+    "id": 3072,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ground",
@@ -30730,7 +30720,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3074,
+    "id": 3073,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "guilty as charged",
@@ -30740,7 +30730,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3075,
+    "id": 3074,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "had a blast",
@@ -30750,7 +30740,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3076,
+    "id": 3075,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hail",
@@ -30760,7 +30750,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3077,
+    "id": 3076,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hailstones",
@@ -30770,17 +30760,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3078,
+    "id": 3077,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "hair",
-    "translation": "თმა",
+    "translation": "волосы",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3079,
+    "id": 3078,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Hairstyle",
@@ -30790,7 +30780,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3080,
+    "id": 3079,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "halfwit",
@@ -30800,7 +30790,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3081,
+    "id": 3080,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "halo",
@@ -30810,7 +30800,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3082,
+    "id": 3081,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hampered",
@@ -30820,7 +30810,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3083,
+    "id": 3082,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "harlot",
@@ -30830,7 +30820,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3084,
+    "id": 3083,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "harlot whore",
@@ -30840,7 +30830,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3085,
+    "id": 3084,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "harness",
@@ -30850,7 +30840,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3086,
+    "id": 3085,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "harriwing",
@@ -30860,7 +30850,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3087,
+    "id": 3086,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "has contempt for its customers",
@@ -30870,7 +30860,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3088,
+    "id": 3087,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "has to ne commended",
@@ -30880,7 +30870,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3089,
+    "id": 3088,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "has-been",
@@ -30890,7 +30880,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3090,
+    "id": 3089,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hasty word",
@@ -30900,7 +30890,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3091,
+    "id": 3090,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hatched",
@@ -30910,7 +30900,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3092,
+    "id": 3091,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "haughty",
@@ -30920,7 +30910,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3093,
+    "id": 3092,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "have a knack",
@@ -30930,7 +30920,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3094,
+    "id": 3093,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "have you gain any insights since youve been studuing it",
@@ -30940,17 +30930,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3095,
+    "id": 3094,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "he can",
-    "translation": "მას შეუძლია",
+    "translation": "он может",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3096,
+    "id": 3095,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "he does know a big deal",
@@ -30960,7 +30950,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3097,
+    "id": 3096,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "he duck himself into the",
@@ -30970,7 +30960,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3098,
+    "id": 3097,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "he rigged the game",
@@ -30980,7 +30970,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3099,
+    "id": 3098,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "he was a con man",
@@ -30990,7 +30980,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3100,
+    "id": 3099,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "he's been withdrawn",
@@ -31000,7 +30990,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3101,
+    "id": 3100,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "heated rivalry",
@@ -31010,7 +31000,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3102,
+    "id": 3101,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hedge knight",
@@ -31020,7 +31010,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3103,
+    "id": 3102,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "heightened",
@@ -31030,7 +31020,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3104,
+    "id": 3103,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "heineous",
@@ -31040,7 +31030,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3105,
+    "id": 3104,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Help yourself",
@@ -31050,7 +31040,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3106,
+    "id": 3105,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "herald",
@@ -31060,17 +31050,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3107,
+    "id": 3106,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "here",
-    "translation": "აქ",
+    "translation": "здесь",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3108,
+    "id": 3107,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "here is an open seat",
@@ -31080,7 +31070,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3109,
+    "id": 3108,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Hernia",
@@ -31090,7 +31080,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3110,
+    "id": 3109,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hes bery with it",
@@ -31100,7 +31090,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3111,
+    "id": 3110,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hes right as rain",
@@ -31110,7 +31100,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3112,
+    "id": 3111,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hesitated",
@@ -31120,7 +31110,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3113,
+    "id": 3112,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hide of a sow",
@@ -31130,7 +31120,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3114,
+    "id": 3113,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "high-waisted",
@@ -31140,7 +31130,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3115,
+    "id": 3114,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hike",
@@ -31150,7 +31140,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3116,
+    "id": 3115,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hinder",
@@ -31160,7 +31150,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3117,
+    "id": 3116,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hinder",
@@ -31170,7 +31160,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3118,
+    "id": 3117,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hitch",
@@ -31180,7 +31170,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3119,
+    "id": 3118,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hitchhiker",
@@ -31190,7 +31180,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3120,
+    "id": 3119,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hold evil in check",
@@ -31200,7 +31190,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3121,
+    "id": 3120,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hold onto this badge",
@@ -31210,7 +31200,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3122,
+    "id": 3121,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "homestrech",
@@ -31220,7 +31210,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3123,
+    "id": 3122,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hoppy",
@@ -31230,7 +31220,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3124,
+    "id": 3123,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "horticulture",
@@ -31240,7 +31230,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3125,
+    "id": 3124,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hotwire this car",
@@ -31250,7 +31240,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3126,
+    "id": 3125,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "how long is the commercial before the movie?",
@@ -31260,7 +31250,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3127,
+    "id": 3126,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "how thry navigate love, work, and their life",
@@ -31270,7 +31260,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3128,
+    "id": 3127,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "how timely",
@@ -31280,7 +31270,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3129,
+    "id": 3128,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "humus",
@@ -31290,7 +31280,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3130,
+    "id": 3129,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hunk of junk",
@@ -31300,7 +31290,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3131,
+    "id": 3130,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hush things out",
@@ -31310,7 +31300,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3132,
+    "id": 3131,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "hush things out loke adults",
@@ -31320,7 +31310,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3133,
+    "id": 3132,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Hut",
@@ -31330,11 +31320,21 @@ const words = [
     "learned": false
   },
   {
+    "id": 3133,
+    "language": "English",
+    "targetLanguage": "Russian",
+    "word": "I am learning",
+    "translation": "я учусь",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
     "id": 3134,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "i cam go out here",
-    "translation": "მე აქ გამოვედი",
+    "targetLanguage": "Russian",
+    "word": "I can",
+    "translation": "я могу",
     "level": null,
     "example": null,
     "learned": false
@@ -31342,9 +31342,9 @@ const words = [
   {
     "id": 3135,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "I can",
-    "translation": "მე შემიძლია",
+    "targetLanguage": "Russian",
+    "word": "I can go out here",
+    "translation": "я могу выйти здесь",
     "level": null,
     "example": null,
     "learned": false
@@ -31442,9 +31442,9 @@ const words = [
   {
     "id": 3145,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "i have card",
-    "translation": "ბარათი მაქვს",
+    "targetLanguage": "Russian",
+    "word": "I have a card",
+    "translation": "у меня есть карта",
     "level": null,
     "example": null,
     "learned": false
@@ -31462,16 +31462,6 @@ const words = [
   {
     "id": 3147,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "i learn",
-    "translation": "მე ვსწავლობ",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
-    "id": 3148,
-    "language": "English",
     "targetLanguage": "Russian",
     "word": "i rebuke this",
     "translation": "Я осуждаю это.",
@@ -31480,7 +31470,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3149,
+    "id": 3148,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "I submit myself",
@@ -31490,7 +31480,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3150,
+    "id": 3149,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "I urge you",
@@ -31500,11 +31490,21 @@ const words = [
     "learned": false
   },
   {
+    "id": 3150,
+    "language": "English",
+    "targetLanguage": "Russian",
+    "word": "I want a cup of cold water",
+    "translation": "я хочу стакан холодной воды",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
     "id": 3151,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "i want i cup of cold water",
-    "translation": "მე მინდა ჭიქა ცივი წყალი",
+    "targetLanguage": "Russian",
+    "word": "I want to change the banking settings for my digital card from M to S",
+    "translation": "я хочу изменить банковские настройки моей цифровой карты с M на S",
     "level": null,
     "example": null,
     "learned": false
@@ -31512,9 +31512,9 @@ const words = [
   {
     "id": 3152,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "i want to change banking set for my digital card from m to s",
-    "translation": "მინდა შევცვალო საბანკო ნაკრები ჩემი ციფრული ბარათისთვის m-დან s-მდე",
+    "targetLanguage": "Russian",
+    "word": "I want to open a virtual card",
+    "translation": "я хочу открыть виртуальную карту",
     "level": null,
     "example": null,
     "learned": false
@@ -31522,9 +31522,9 @@ const words = [
   {
     "id": 3153,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "i want to ipen virtual card",
-    "translation": "ვირტუალური ბარათის გახსნა მინდა",
+    "targetLanguage": "Russian",
+    "word": "I want to take it out",
+    "translation": "я хочу это вынести",
     "level": null,
     "example": null,
     "learned": false
@@ -31532,25 +31532,15 @@ const words = [
   {
     "id": 3154,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "I want to take it out",
-    "translation": "მინდა გამოვიტანო",
+    "targetLanguage": "Russian",
+    "word": "I want to withdraw my deposit money",
+    "translation": "я хочу снять деньги с депозита",
     "level": null,
     "example": null,
     "learned": false
   },
   {
     "id": 3155,
-    "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "i want to withdraw my deposit money",
-    "translation": "მე მინდა გამოვიტანო ჩემი დეპოზიტის ფული",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
-    "id": 3156,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "i was fuming",
@@ -31560,7 +31550,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3157,
+    "id": 3156,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "i was on the cusp",
@@ -31570,7 +31560,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3158,
+    "id": 3157,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "i week from today",
@@ -31580,7 +31570,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3159,
+    "id": 3158,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "i work in private capacity",
@@ -31590,17 +31580,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3160,
+    "id": 3159,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "i would like to pay",
-    "translation": "მე მინდა გადავიხადო",
+    "targetLanguage": "Russian",
+    "word": "I would like to pay",
+    "translation": "я хотел бы заплатить",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3161,
+    "id": 3160,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "I’ll make it worth your while",
@@ -31610,7 +31600,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3162,
+    "id": 3161,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "i'll pass along",
@@ -31620,7 +31610,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3163,
+    "id": 3162,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "I’ll triple dog dare ya",
@@ -31630,7 +31620,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3164,
+    "id": 3163,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "I'm dead in the water here",
@@ -31640,7 +31630,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3165,
+    "id": 3164,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "icky",
@@ -31650,7 +31640,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3166,
+    "id": 3165,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "idle savings",
@@ -31660,7 +31650,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3167,
+    "id": 3166,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "if youre liability",
@@ -31670,7 +31660,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3168,
+    "id": 3167,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "il be right there",
@@ -31680,7 +31670,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3169,
+    "id": 3168,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ill level with you",
@@ -31690,7 +31680,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3170,
+    "id": 3169,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Ill sweat it",
@@ -31700,7 +31690,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3171,
+    "id": 3170,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ill-fated romance",
@@ -31710,7 +31700,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3172,
+    "id": 3171,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "im afraid i cant take the all credit here",
@@ -31720,7 +31710,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3173,
+    "id": 3172,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "im glad i was able to mee your expectations",
@@ -31730,7 +31720,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3174,
+    "id": 3173,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "im just stalling",
@@ -31740,7 +31730,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3175,
+    "id": 3174,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "im low on medicine",
@@ -31750,7 +31740,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3176,
+    "id": 3175,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "im not here to make you come up with the excuses",
@@ -31760,7 +31750,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3177,
+    "id": 3176,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "immodest",
@@ -31770,7 +31760,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3178,
+    "id": 3177,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "impressed me thus far",
@@ -31780,7 +31770,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3179,
+    "id": 3178,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "imprint of war",
@@ -31790,7 +31780,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3180,
+    "id": 3179,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "improbability",
@@ -31800,7 +31790,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3181,
+    "id": 3180,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "in spite of it",
@@ -31810,7 +31800,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3182,
+    "id": 3181,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "incenirate",
@@ -31820,7 +31810,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3183,
+    "id": 3182,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "incense",
@@ -31830,7 +31820,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3184,
+    "id": 3183,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "incessent",
@@ -31840,7 +31830,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3185,
+    "id": 3184,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Incinerator",
@@ -31850,7 +31840,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3186,
+    "id": 3185,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "incluned to believe",
@@ -31860,7 +31850,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3187,
+    "id": 3186,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "inconsiderate",
@@ -31870,7 +31860,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3188,
+    "id": 3187,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "indefinetely",
@@ -31880,7 +31870,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3189,
+    "id": 3188,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "indignation",
@@ -31890,7 +31880,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3190,
+    "id": 3189,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "indisposed",
@@ -31900,7 +31890,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3191,
+    "id": 3190,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "infidelity",
@@ -31910,7 +31900,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3192,
+    "id": 3191,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "infirmary",
@@ -31920,7 +31910,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3193,
+    "id": 3192,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ingot",
@@ -31930,7 +31920,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3194,
+    "id": 3193,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ingown toenail",
@@ -31940,7 +31930,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3195,
+    "id": 3194,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ingratiating grin",
@@ -31950,7 +31940,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3196,
+    "id": 3195,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "injury",
@@ -31960,7 +31950,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3197,
+    "id": 3196,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "innate",
@@ -31970,7 +31960,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3198,
+    "id": 3197,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "inquire",
@@ -31980,7 +31970,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3199,
+    "id": 3198,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "inquisitive",
@@ -31990,7 +31980,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3200,
+    "id": 3199,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "inquries",
@@ -32000,7 +31990,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3201,
+    "id": 3200,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "insulated",
@@ -32010,7 +32000,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3202,
+    "id": 3201,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "insulation",
@@ -32020,17 +32010,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3203,
+    "id": 3202,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "interesting",
-    "translation": "საინტერესო",
+    "translation": "интересный",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3204,
+    "id": 3203,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "interim result",
@@ -32040,7 +32030,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3205,
+    "id": 3204,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "intermission",
@@ -32050,7 +32040,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3206,
+    "id": 3205,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "intestines",
@@ -32060,7 +32050,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3207,
+    "id": 3206,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "intimidating",
@@ -32070,7 +32060,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3208,
+    "id": 3207,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "intricate",
@@ -32080,7 +32070,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3209,
+    "id": 3208,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "invaluable",
@@ -32090,7 +32080,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3210,
+    "id": 3209,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "irreversible",
@@ -32100,7 +32090,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3211,
+    "id": 3210,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "is a recipie of sort",
@@ -32110,7 +32100,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3212,
+    "id": 3211,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "is nigh",
@@ -32120,7 +32110,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3213,
+    "id": 3212,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "it accomplishes nothi",
@@ -32130,7 +32120,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3214,
+    "id": 3213,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "it begs the question",
@@ -32140,7 +32130,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3215,
+    "id": 3214,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "It just seems this way to you",
@@ -32150,7 +32140,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3216,
+    "id": 3215,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "it needn't be a costume",
@@ -32160,7 +32150,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3217,
+    "id": 3216,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "it secure its demise",
@@ -32170,7 +32160,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3218,
+    "id": 3217,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "it secured its demise",
@@ -32180,7 +32170,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3219,
+    "id": 3218,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "it seemed to me",
@@ -32190,7 +32180,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3220,
+    "id": 3219,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "it was a whim that passed",
@@ -32200,17 +32190,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3221,
+    "id": 3220,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "it was really good",
-    "translation": "მართლა კარგი იყო",
+    "targetLanguage": "Russian",
+    "word": "It was really good",
+    "translation": "это было действительно хорошо",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3222,
+    "id": 3221,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "it was taking heat",
@@ -32220,17 +32210,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3223,
+    "id": 3222,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "it was very delicious",
-    "translation": "ძალიან გემრიელი იყო",
+    "targetLanguage": "Russian",
+    "word": "It was very delicious",
+    "translation": "это было очень вкусно",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3224,
+    "id": 3223,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "it will hinder",
@@ -32240,7 +32230,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3225,
+    "id": 3224,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "It's gone too far",
@@ -32250,7 +32240,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3226,
+    "id": 3225,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "its a sop",
@@ -32260,7 +32250,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3227,
+    "id": 3226,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "its eerie",
@@ -32270,7 +32260,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3228,
+    "id": 3227,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "its more than just a graze",
@@ -32280,7 +32270,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3229,
+    "id": 3228,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ive been unraveling",
@@ -32290,7 +32280,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3230,
+    "id": 3229,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "javelin",
@@ -32300,7 +32290,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3231,
+    "id": 3230,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Jay",
@@ -32310,7 +32300,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3232,
+    "id": 3231,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "jinxes",
@@ -32320,7 +32310,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3233,
+    "id": 3232,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "joust",
@@ -32330,7 +32320,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3234,
+    "id": 3233,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "kablooey",
@@ -32340,7 +32330,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3235,
+    "id": 3234,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "keep clear",
@@ -32350,7 +32340,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3236,
+    "id": 3235,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "keep clear of door",
@@ -32360,7 +32350,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3237,
+    "id": 3236,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "keep me apprised",
@@ -32370,7 +32360,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3238,
+    "id": 3237,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "keepsake",
@@ -32380,7 +32370,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3239,
+    "id": 3238,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "kept mum",
@@ -32390,7 +32380,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3240,
+    "id": 3239,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "knit it into",
@@ -32400,7 +32390,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3241,
+    "id": 3240,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lackluster",
@@ -32410,7 +32400,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3242,
+    "id": 3241,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lair",
@@ -32420,7 +32410,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3243,
+    "id": 3242,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "leans toward",
@@ -32430,7 +32420,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3244,
+    "id": 3243,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "leotard",
@@ -32440,7 +32430,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3245,
+    "id": 3244,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lets get you set up",
@@ -32450,7 +32440,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3246,
+    "id": 3245,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lets talk shop",
@@ -32460,7 +32450,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3247,
+    "id": 3246,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lettuce",
@@ -32470,7 +32460,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3248,
+    "id": 3247,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "liability",
@@ -32480,7 +32470,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3249,
+    "id": 3248,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lined with ermine",
@@ -32490,7 +32480,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3250,
+    "id": 3249,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lineup",
@@ -32500,7 +32490,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3251,
+    "id": 3250,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lingering on things",
@@ -32510,7 +32500,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3252,
+    "id": 3251,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "literacy",
@@ -32520,7 +32510,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3253,
+    "id": 3252,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Literary translation",
@@ -32530,7 +32520,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3254,
+    "id": 3253,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "little punk bitch",
@@ -32540,7 +32530,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3255,
+    "id": 3254,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lived to boast about it",
@@ -32550,7 +32540,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3256,
+    "id": 3255,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "loan oyt",
@@ -32560,7 +32550,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3257,
+    "id": 3256,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "loath",
@@ -32570,7 +32560,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3258,
+    "id": 3257,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Lobe",
@@ -32580,7 +32570,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3259,
+    "id": 3258,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "locksmith",
@@ -32590,17 +32580,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3260,
+    "id": 3259,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "long",
-    "translation": "გრძელი",
+    "translation": "длинный",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3261,
+    "id": 3260,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "look",
@@ -32610,7 +32600,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3262,
+    "id": 3261,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "looky-loo",
@@ -32620,7 +32610,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3263,
+    "id": 3262,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Loose",
@@ -32630,7 +32620,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3264,
+    "id": 3263,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lure",
@@ -32640,7 +32630,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3265,
+    "id": 3264,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lured",
@@ -32650,7 +32640,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3266,
+    "id": 3265,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "lynx",
@@ -32660,7 +32650,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3267,
+    "id": 3266,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "maggot",
@@ -32670,7 +32660,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3268,
+    "id": 3267,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "make the most of it",
@@ -32680,7 +32670,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3269,
+    "id": 3268,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Mantle",
@@ -32690,7 +32680,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3270,
+    "id": 3269,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "manure",
@@ -32700,7 +32690,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3271,
+    "id": 3270,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Manure",
@@ -32710,7 +32700,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3272,
+    "id": 3271,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "maul him",
@@ -32720,7 +32710,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3273,
+    "id": 3272,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "maulings",
@@ -32730,27 +32720,27 @@ const words = [
     "learned": false
   },
   {
+    "id": 3273,
+    "language": "English",
+    "targetLanguage": "Russian",
+    "word": "May I use it?",
+    "translation": "можно мне этим воспользоваться?",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
     "id": 3274,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "may i use it",
-    "translation": "შემიძლია გამოვიყენო",
+    "targetLanguage": "Russian",
+    "word": "May we ask for a discount?",
+    "translation": "можем мы попросить скидку?",
     "level": null,
     "example": null,
     "learned": false
   },
   {
     "id": 3275,
-    "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "may we ask for a discount?",
-    "translation": "შეიძლება ვითხოვოთ ფასდაკლება?",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
-    "id": 3276,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "meander",
@@ -32760,17 +32750,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3277,
+    "id": 3276,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "medium",
-    "translation": "საშუალო",
+    "translation": "средний",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3278,
+    "id": 3277,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "meet-cute",
@@ -32780,7 +32770,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3279,
+    "id": 3278,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mellow",
@@ -32790,7 +32780,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3280,
+    "id": 3279,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mend fences",
@@ -32800,7 +32790,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3281,
+    "id": 3280,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mending",
@@ -32810,7 +32800,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3282,
+    "id": 3281,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mentally unsound",
@@ -32820,7 +32810,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3283,
+    "id": 3282,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mere tool",
@@ -32830,7 +32820,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3284,
+    "id": 3283,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "merit",
@@ -32840,7 +32830,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3285,
+    "id": 3284,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "milk is spoiled",
@@ -32850,7 +32840,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3286,
+    "id": 3285,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mincing the garlic",
@@ -32860,7 +32850,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3287,
+    "id": 3286,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mind meld",
@@ -32870,7 +32860,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3288,
+    "id": 3287,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Mineral fertilizer",
@@ -32880,7 +32870,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3289,
+    "id": 3288,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mitigate",
@@ -32890,7 +32880,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3290,
+    "id": 3289,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mitigation",
@@ -32900,7 +32890,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3291,
+    "id": 3290,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "moat",
@@ -32910,7 +32900,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3292,
+    "id": 3291,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mogged",
@@ -32920,7 +32910,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3293,
+    "id": 3292,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "molded copper",
@@ -32930,7 +32920,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3294,
+    "id": 3293,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mole people",
@@ -32940,7 +32930,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3295,
+    "id": 3294,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "molest",
@@ -32950,7 +32940,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3296,
+    "id": 3295,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "momentous occasion",
@@ -32960,7 +32950,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3297,
+    "id": 3296,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "momentum",
@@ -32970,7 +32960,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3298,
+    "id": 3297,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mongrel",
@@ -32980,7 +32970,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3299,
+    "id": 3298,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "moniker",
@@ -32990,7 +32980,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3300,
+    "id": 3299,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mooning over",
@@ -33000,7 +32990,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3301,
+    "id": 3300,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mopey",
@@ -33010,7 +33000,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3302,
+    "id": 3301,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "morbid",
@@ -33020,7 +33010,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3303,
+    "id": 3302,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "morbid facts",
@@ -33030,7 +33020,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3304,
+    "id": 3303,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Mountain Range",
@@ -33040,17 +33030,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3305,
+    "id": 3304,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "move",
-    "translation": "გადაადგილება",
+    "translation": "двигаться",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3306,
+    "id": 3305,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "much to our chargin",
@@ -33060,7 +33050,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3307,
+    "id": 3306,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "muffled",
@@ -33070,7 +33060,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3308,
+    "id": 3307,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "multitude",
@@ -33080,7 +33070,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3309,
+    "id": 3308,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Mum's the word!",
@@ -33090,7 +33080,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3310,
+    "id": 3309,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mundanity",
@@ -33100,7 +33090,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3311,
+    "id": 3310,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mutilation",
@@ -33110,7 +33100,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3312,
+    "id": 3311,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "mutilations",
@@ -33120,7 +33110,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3313,
+    "id": 3312,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "my interest in science leans toward",
@@ -33130,7 +33120,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3314,
+    "id": 3313,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "my interest leans toward",
@@ -33140,7 +33130,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3315,
+    "id": 3314,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "my treat",
@@ -33150,7 +33140,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3316,
+    "id": 3315,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "my wife is in labor",
@@ -33160,17 +33150,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3317,
+    "id": 3316,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "name",
-    "translation": "სახელი",
+    "translation": "имя",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3318,
+    "id": 3317,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "nascent",
@@ -33180,7 +33170,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3319,
+    "id": 3318,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "navigate to",
@@ -33190,7 +33180,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3320,
+    "id": 3319,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "neuter pets",
@@ -33200,7 +33190,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3321,
+    "id": 3320,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "neutered",
@@ -33210,7 +33200,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3322,
+    "id": 3321,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "never turn down the chance to hit the bathroom",
@@ -33220,11 +33210,21 @@ const words = [
     "learned": false
   },
   {
+    "id": 3322,
+    "language": "English",
+    "targetLanguage": "Russian",
+    "word": "nice",
+    "translation": "приятный",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
     "id": 3323,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "nice",
-    "translation": "სასიამოვნო",
+    "targetLanguage": "Russian",
+    "word": "nice look",
+    "translation": "классный образ",
     "level": null,
     "example": null,
     "learned": false
@@ -33232,9 +33232,9 @@ const words = [
   {
     "id": 3324,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "nice look",
-    "translation": "ლამაზი გარეგნობა",
+    "targetLanguage": "Russian",
+    "word": "nice music",
+    "translation": "приятная музыка",
     "level": null,
     "example": null,
     "learned": false
@@ -33242,25 +33242,15 @@ const words = [
   {
     "id": 3325,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "nice music",
-    "translation": "სასიამოვნო მუსიკა",
+    "targetLanguage": "Russian",
+    "word": "nice playlist",
+    "translation": "хороший плейлист",
     "level": null,
     "example": null,
     "learned": false
   },
   {
     "id": 3326,
-    "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "nice playlist",
-    "translation": "ლამაზი დასაკრავი სია",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
-    "id": 3327,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "nixed",
@@ -33270,7 +33260,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3328,
+    "id": 3327,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "no remedy once engested",
@@ -33280,7 +33270,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3329,
+    "id": 3328,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "not-seemingly",
@@ -33290,7 +33280,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3330,
+    "id": 3329,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "not-seemingly neutered",
@@ -33300,7 +33290,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3331,
+    "id": 3330,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "noxious",
@@ -33310,7 +33300,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3332,
+    "id": 3331,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "numb",
@@ -33320,7 +33310,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3333,
+    "id": 3332,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "nutmeg",
@@ -33330,7 +33320,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3334,
+    "id": 3333,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "oblidged",
@@ -33340,7 +33330,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3335,
+    "id": 3334,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "observant",
@@ -33350,7 +33340,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3336,
+    "id": 3335,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "obsolete",
@@ -33360,7 +33350,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3337,
+    "id": 3336,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "obstruction",
@@ -33370,7 +33360,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3338,
+    "id": 3337,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "offals",
@@ -33380,7 +33370,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3339,
+    "id": 3338,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Offense",
@@ -33390,7 +33380,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3340,
+    "id": 3339,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Okay, let's say",
@@ -33400,7 +33390,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3341,
+    "id": 3340,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "on her rear",
@@ -33410,7 +33400,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3342,
+    "id": 3341,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "On horseback",
@@ -33420,7 +33410,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3343,
+    "id": 3342,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "on the brink",
@@ -33430,7 +33420,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3344,
+    "id": 3343,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ordeal",
@@ -33440,7 +33430,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3345,
+    "id": 3344,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ornery",
@@ -33450,7 +33440,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3346,
+    "id": 3345,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "osolete",
@@ -33460,7 +33450,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3347,
+    "id": 3346,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "other than that",
@@ -33470,7 +33460,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3348,
+    "id": 3347,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ounterparties",
@@ -33480,7 +33470,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3349,
+    "id": 3348,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "our notion",
@@ -33490,7 +33480,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3350,
+    "id": 3349,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "outskirts",
@@ -33500,7 +33490,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3351,
+    "id": 3350,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "over time",
@@ -33510,7 +33500,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3352,
+    "id": 3351,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "overall",
@@ -33520,7 +33510,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3353,
+    "id": 3352,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "overalls",
@@ -33530,7 +33520,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3354,
+    "id": 3353,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "overline",
@@ -33540,7 +33530,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3355,
+    "id": 3354,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "overripe",
@@ -33550,7 +33540,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3356,
+    "id": 3355,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "overseen",
@@ -33560,7 +33550,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3357,
+    "id": 3356,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "overshadows",
@@ -33570,7 +33560,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3358,
+    "id": 3357,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "overstate",
@@ -33580,7 +33570,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3359,
+    "id": 3358,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "own venture",
@@ -33590,7 +33580,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3360,
+    "id": 3359,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pampers people",
@@ -33600,7 +33590,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3361,
+    "id": 3360,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Pass tests",
@@ -33610,7 +33600,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3362,
+    "id": 3361,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pavillion",
@@ -33620,7 +33610,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3363,
+    "id": 3362,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pay stub",
@@ -33630,7 +33620,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3364,
+    "id": 3363,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "peerage",
@@ -33640,7 +33630,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3365,
+    "id": 3364,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "peril",
@@ -33650,7 +33640,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3366,
+    "id": 3365,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "perilous",
@@ -33660,7 +33650,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3367,
+    "id": 3366,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "perplexed",
@@ -33670,7 +33660,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3368,
+    "id": 3367,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "perplexety",
@@ -33680,7 +33670,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3369,
+    "id": 3368,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "perplexing",
@@ -33690,7 +33680,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3370,
+    "id": 3369,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "perplexing plots",
@@ -33700,7 +33690,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3371,
+    "id": 3370,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Perseverance",
@@ -33710,7 +33700,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3372,
+    "id": 3371,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "perssimon",
@@ -33720,7 +33710,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3373,
+    "id": 3372,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "petty things",
@@ -33730,7 +33720,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3374,
+    "id": 3373,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pew",
@@ -33740,7 +33730,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3375,
+    "id": 3374,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Picking your nose",
@@ -33750,7 +33740,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3376,
+    "id": 3375,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pinhole camera",
@@ -33760,7 +33750,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3377,
+    "id": 3376,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pitfalls",
@@ -33770,17 +33760,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3378,
+    "id": 3377,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "place",
-    "translation": "ადგილი",
+    "translation": "место",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3379,
+    "id": 3378,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "please indulge me",
@@ -33790,7 +33780,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3380,
+    "id": 3379,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Pleased",
@@ -33800,7 +33790,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3381,
+    "id": 3380,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pleasure to meet you",
@@ -33810,7 +33800,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3382,
+    "id": 3381,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pledged",
@@ -33820,7 +33810,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3383,
+    "id": 3382,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "plugging away",
@@ -33830,7 +33820,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3384,
+    "id": 3383,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "potato ricer",
@@ -33840,7 +33830,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3385,
+    "id": 3384,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pothead",
@@ -33850,7 +33840,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3386,
+    "id": 3385,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pothole",
@@ -33860,7 +33850,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3387,
+    "id": 3386,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pottluck",
@@ -33870,7 +33860,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3388,
+    "id": 3387,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pre owned",
@@ -33880,7 +33870,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3389,
+    "id": 3388,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "predominan",
@@ -33890,7 +33880,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3390,
+    "id": 3389,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "preliminary",
@@ -33900,7 +33890,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3391,
+    "id": 3390,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "prentice",
@@ -33910,7 +33900,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3392,
+    "id": 3391,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "presumption",
@@ -33920,7 +33910,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3393,
+    "id": 3392,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "preventive examination",
@@ -33930,7 +33920,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3394,
+    "id": 3393,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "prior knowledge of the facts",
@@ -33940,7 +33930,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3395,
+    "id": 3394,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "probable cause",
@@ -33950,7 +33940,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3396,
+    "id": 3395,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "prodigal",
@@ -33960,7 +33950,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3397,
+    "id": 3396,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "professional costs",
@@ -33970,7 +33960,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3398,
+    "id": 3397,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "profeteering",
@@ -33980,7 +33970,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3399,
+    "id": 3398,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "progressive disclouse",
@@ -33990,7 +33980,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3400,
+    "id": 3399,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "projectile",
@@ -34000,7 +33990,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3401,
+    "id": 3400,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "propel",
@@ -34010,7 +34000,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3402,
+    "id": 3401,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "propell",
@@ -34020,7 +34010,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3403,
+    "id": 3402,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "proprietor",
@@ -34030,7 +34020,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3404,
+    "id": 3403,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pros",
@@ -34040,7 +34030,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3405,
+    "id": 3404,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pruned",
@@ -34050,7 +34040,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3406,
+    "id": 3405,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "prying eues",
@@ -34060,7 +34050,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3407,
+    "id": 3406,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "puddle",
@@ -34070,27 +34060,27 @@ const words = [
     "learned": false
   },
   {
+    "id": 3407,
+    "language": "English",
+    "targetLanguage": "Russian",
+    "word": "pumpkin",
+    "translation": "тыква",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
     "id": 3408,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "pumpkin",
-    "translation": "გოგრა",
+    "targetLanguage": "Russian",
+    "word": "pumpkin salad",
+    "translation": "салат из тыквы",
     "level": null,
     "example": null,
     "learned": false
   },
   {
     "id": 3409,
-    "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "pumpkin salad",
-    "translation": "გოგრის სალათი",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
-    "id": 3410,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pun intended",
@@ -34100,7 +34090,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3411,
+    "id": 3410,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "puny",
@@ -34110,7 +34100,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3412,
+    "id": 3411,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "pupil",
@@ -34120,7 +34110,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3413,
+    "id": 3412,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Pupil",
@@ -34130,7 +34120,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3414,
+    "id": 3413,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "push come to shove",
@@ -34140,7 +34130,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3415,
+    "id": 3414,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "putty",
@@ -34150,7 +34140,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3416,
+    "id": 3415,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "quite an earful he gave me",
@@ -34160,7 +34150,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3417,
+    "id": 3416,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "racial slur leveled",
@@ -34170,7 +34160,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3418,
+    "id": 3417,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "raffle",
@@ -34180,7 +34170,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3419,
+    "id": 3418,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rally",
@@ -34190,7 +34180,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3420,
+    "id": 3419,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rally behind",
@@ -34200,7 +34190,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3421,
+    "id": 3420,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rancid oil",
@@ -34210,7 +34200,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3422,
+    "id": 3421,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ranted on and on",
@@ -34220,7 +34210,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3423,
+    "id": 3422,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "raspy voice",
@@ -34230,7 +34220,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3424,
+    "id": 3423,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rates a little slack",
@@ -34240,7 +34230,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3425,
+    "id": 3424,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rear",
@@ -34250,7 +34240,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3426,
+    "id": 3425,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rebuke",
@@ -34260,7 +34250,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3427,
+    "id": 3426,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "reconnaissance",
@@ -34270,7 +34260,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3428,
+    "id": 3427,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rectory",
@@ -34280,7 +34270,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3429,
+    "id": 3428,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "remnant",
@@ -34290,7 +34280,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3430,
+    "id": 3429,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rendered to the crown",
@@ -34300,7 +34290,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3431,
+    "id": 3430,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rendition",
@@ -34310,7 +34300,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3432,
+    "id": 3431,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "renouncing",
@@ -34320,7 +34310,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3433,
+    "id": 3432,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "repulsed",
@@ -34330,7 +34320,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3434,
+    "id": 3433,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "residue",
@@ -34340,17 +34330,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3435,
+    "id": 3434,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "rest",
-    "translation": "დასვენება",
+    "translation": "отдыхать",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3436,
+    "id": 3435,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "restrain",
@@ -34360,7 +34350,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3437,
+    "id": 3436,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "retain",
@@ -34370,7 +34360,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3438,
+    "id": 3437,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "retcon",
@@ -34380,7 +34370,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3439,
+    "id": 3438,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "reticennt",
@@ -34390,7 +34380,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3440,
+    "id": 3439,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "revenant",
@@ -34400,7 +34390,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3441,
+    "id": 3440,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "revere",
@@ -34410,7 +34400,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3442,
+    "id": 3441,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "reverence",
@@ -34420,7 +34410,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3443,
+    "id": 3442,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "revolve",
@@ -34430,7 +34420,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3444,
+    "id": 3443,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rift",
@@ -34440,7 +34430,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3445,
+    "id": 3444,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rigged",
@@ -34450,7 +34440,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3446,
+    "id": 3445,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "right hand to god, ill do it",
@@ -34460,7 +34450,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3447,
+    "id": 3446,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "right you are",
@@ -34470,7 +34460,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3448,
+    "id": 3447,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rigor",
@@ -34480,7 +34470,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3449,
+    "id": 3448,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rim light",
@@ -34490,7 +34480,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3450,
+    "id": 3449,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rival cities",
@@ -34500,7 +34490,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3451,
+    "id": 3450,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rivalry",
@@ -34510,7 +34500,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3452,
+    "id": 3451,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rizzing",
@@ -34520,7 +34510,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3453,
+    "id": 3452,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "robins",
@@ -34530,7 +34520,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3454,
+    "id": 3453,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "roger that",
@@ -34540,7 +34530,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3455,
+    "id": 3454,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "row",
@@ -34550,7 +34540,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3456,
+    "id": 3455,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "rule of thumb",
@@ -34560,7 +34550,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3457,
+    "id": 3456,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "run for your life",
@@ -34570,7 +34560,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3458,
+    "id": 3457,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "runtime",
@@ -34580,7 +34570,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3459,
+    "id": 3458,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "salivation",
@@ -34590,7 +34580,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3460,
+    "id": 3459,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sandblasted",
@@ -34600,7 +34590,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3461,
+    "id": 3460,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sas flock of losers",
@@ -34610,7 +34600,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3462,
+    "id": 3461,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "satchel",
@@ -34620,7 +34610,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3463,
+    "id": 3462,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "scab",
@@ -34630,7 +34620,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3464,
+    "id": 3463,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "scaffolding",
@@ -34640,7 +34630,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3465,
+    "id": 3464,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "scald",
@@ -34650,7 +34640,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3466,
+    "id": 3465,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "schooner",
@@ -34660,7 +34650,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3467,
+    "id": 3466,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "scimitar",
@@ -34670,7 +34660,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3468,
+    "id": 3467,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "scoop",
@@ -34680,7 +34670,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3469,
+    "id": 3468,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "scoot back",
@@ -34690,7 +34680,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3470,
+    "id": 3469,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "scoure",
@@ -34700,7 +34690,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3471,
+    "id": 3470,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Scurry up",
@@ -34710,7 +34700,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3472,
+    "id": 3471,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "second-guess myself",
@@ -34720,7 +34710,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3473,
+    "id": 3472,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sediments",
@@ -34730,7 +34720,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3474,
+    "id": 3473,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "seizes to exist",
@@ -34740,7 +34730,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3475,
+    "id": 3474,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "self contained",
@@ -34750,7 +34740,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3476,
+    "id": 3475,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "serendipit",
@@ -34760,7 +34750,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3477,
+    "id": 3476,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "serendipitous",
@@ -34770,7 +34760,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3478,
+    "id": 3477,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "serendipitously",
@@ -34780,7 +34770,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3479,
+    "id": 3478,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "serve inly as a means",
@@ -34790,7 +34780,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3480,
+    "id": 3479,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "shake it loose",
@@ -34800,7 +34790,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3481,
+    "id": 3480,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Shelter",
@@ -34810,7 +34800,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3482,
+    "id": 3481,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "shelved plans",
@@ -34820,7 +34810,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3483,
+    "id": 3482,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "shit-creek",
@@ -34830,7 +34820,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3484,
+    "id": 3483,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "shooting up",
@@ -34840,7 +34830,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3485,
+    "id": 3484,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "shoplifting",
@@ -34850,7 +34840,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3486,
+    "id": 3485,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "showcase",
@@ -34860,7 +34850,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3487,
+    "id": 3486,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "shriek",
@@ -34870,7 +34860,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3488,
+    "id": 3487,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Shrugged",
@@ -34880,7 +34870,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3489,
+    "id": 3488,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "shrugged off",
@@ -34890,7 +34880,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3490,
+    "id": 3489,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "side collection",
@@ -34900,7 +34890,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3491,
+    "id": 3490,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "side eye",
@@ -34910,7 +34900,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3492,
+    "id": 3491,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "siloed",
@@ -34920,7 +34910,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3493,
+    "id": 3492,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "silverfish",
@@ -34930,7 +34920,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3494,
+    "id": 3493,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "simpering child",
@@ -34940,7 +34930,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3495,
+    "id": 3494,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "skim mode",
@@ -34950,7 +34940,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3496,
+    "id": 3495,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "skimmed through it",
@@ -34960,7 +34950,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3497,
+    "id": 3496,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "skittish",
@@ -34970,7 +34960,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3498,
+    "id": 3497,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "slant",
@@ -34980,7 +34970,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3499,
+    "id": 3498,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sleak plan",
@@ -34990,7 +34980,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3500,
+    "id": 3499,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "slender",
@@ -35000,7 +34990,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3501,
+    "id": 3500,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "slicing the bread",
@@ -35010,7 +35000,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3502,
+    "id": 3501,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "slick",
@@ -35020,7 +35010,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3503,
+    "id": 3502,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Slip up",
@@ -35030,7 +35020,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3504,
+    "id": 3503,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "slobbery toy",
@@ -35040,7 +35030,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3505,
+    "id": 3504,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "slouch",
@@ -35050,7 +35040,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3506,
+    "id": 3505,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sludge",
@@ -35060,7 +35050,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3507,
+    "id": 3506,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "slurre his words",
@@ -35070,7 +35060,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3508,
+    "id": 3507,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "smacked it",
@@ -35080,17 +35070,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3509,
+    "id": 3508,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "small",
-    "translation": "პატარა",
+    "translation": "маленький",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3510,
+    "id": 3509,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Socket",
@@ -35100,7 +35090,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3511,
+    "id": 3510,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "solace",
@@ -35110,7 +35100,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3512,
+    "id": 3511,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sole",
@@ -35120,7 +35110,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3513,
+    "id": 3512,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "solicitor",
@@ -35130,7 +35120,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3514,
+    "id": 3513,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "soluble",
@@ -35140,17 +35130,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3515,
+    "id": 3514,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "something like",
-    "translation": "რაღაც მსგავსი",
+    "translation": "что-то вроде",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3516,
+    "id": 3515,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Sorcerer",
@@ -35160,7 +35150,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3517,
+    "id": 3516,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sourdough bread",
@@ -35170,7 +35160,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3518,
+    "id": 3517,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "spew",
@@ -35180,7 +35170,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3519,
+    "id": 3518,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "spitball",
@@ -35190,7 +35180,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3520,
+    "id": 3519,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "spoilsports",
@@ -35200,7 +35190,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3521,
+    "id": 3520,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "spooge",
@@ -35210,7 +35200,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3522,
+    "id": 3521,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "spouse",
@@ -35220,7 +35210,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3523,
+    "id": 3522,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "spree",
@@ -35230,7 +35220,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3524,
+    "id": 3523,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Spring",
@@ -35240,7 +35230,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3525,
+    "id": 3524,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sprouted potato",
@@ -35250,7 +35240,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3526,
+    "id": 3525,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "squalor",
@@ -35260,7 +35250,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3527,
+    "id": 3526,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "square up",
@@ -35270,7 +35260,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3528,
+    "id": 3527,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "squeaking",
@@ -35280,7 +35270,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3529,
+    "id": 3528,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "squeamish",
@@ -35290,7 +35280,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3530,
+    "id": 3529,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "stale bread",
@@ -35300,7 +35290,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3531,
+    "id": 3530,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "staple",
@@ -35310,7 +35300,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3532,
+    "id": 3531,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "star-studded cast",
@@ -35320,7 +35310,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3533,
+    "id": 3532,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "start us off",
@@ -35330,7 +35320,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3534,
+    "id": 3533,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "stationery",
@@ -35340,7 +35330,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3535,
+    "id": 3534,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "steppenwolf",
@@ -35350,7 +35340,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3536,
+    "id": 3535,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sticky rice",
@@ -35360,7 +35350,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3537,
+    "id": 3536,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "still at large",
@@ -35370,7 +35360,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3538,
+    "id": 3537,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "stirred",
@@ -35380,7 +35370,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3539,
+    "id": 3538,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "stirring",
@@ -35390,17 +35380,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3540,
+    "id": 3539,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "stop",
-    "translation": "გაჩერება",
+    "translation": "остановиться",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3541,
+    "id": 3540,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "strangled",
@@ -35410,17 +35400,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3542,
+    "id": 3541,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "street",
-    "translation": "ქუჩა",
+    "translation": "улица",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3543,
+    "id": 3542,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "striped",
@@ -35430,7 +35420,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3544,
+    "id": 3543,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "studded with",
@@ -35440,7 +35430,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3545,
+    "id": 3544,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "stumble",
@@ -35450,7 +35440,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3546,
+    "id": 3545,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "stutter",
@@ -35460,7 +35450,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3547,
+    "id": 3546,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "subdue",
@@ -35470,7 +35460,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3548,
+    "id": 3547,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "subsides",
@@ -35480,7 +35470,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3549,
+    "id": 3548,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "substittute",
@@ -35490,7 +35480,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3550,
+    "id": 3549,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "substitution",
@@ -35500,7 +35490,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3551,
+    "id": 3550,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "subtle",
@@ -35510,7 +35500,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3552,
+    "id": 3551,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "suckered",
@@ -35520,7 +35510,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3553,
+    "id": 3552,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "suds",
@@ -35530,7 +35520,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3554,
+    "id": 3553,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "suit yourself",
@@ -35540,7 +35530,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3555,
+    "id": 3554,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sultry",
@@ -35550,7 +35540,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3556,
+    "id": 3555,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "summersault",
@@ -35560,7 +35550,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3557,
+    "id": 3556,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "supplanted",
@@ -35570,7 +35560,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3558,
+    "id": 3557,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "supplicant",
@@ -35580,7 +35570,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3559,
+    "id": 3558,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "supposedely",
@@ -35590,7 +35580,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3560,
+    "id": 3559,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sure, go for it",
@@ -35600,7 +35590,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3561,
+    "id": 3560,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "surge",
@@ -35610,7 +35600,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3562,
+    "id": 3561,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "survaillance",
@@ -35620,7 +35610,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3563,
+    "id": 3562,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "surve",
@@ -35630,7 +35620,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3564,
+    "id": 3563,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "surveillan",
@@ -35640,7 +35630,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3565,
+    "id": 3564,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sustains me",
@@ -35650,7 +35640,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3566,
+    "id": 3565,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "sweat lodge",
@@ -35660,7 +35650,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3567,
+    "id": 3566,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "swift learner",
@@ -35670,7 +35660,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3568,
+    "id": 3567,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "swindlers",
@@ -35680,7 +35670,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3569,
+    "id": 3568,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "swing by",
@@ -35690,7 +35680,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3570,
+    "id": 3569,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "swish it",
@@ -35700,7 +35690,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3571,
+    "id": 3570,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "swivel",
@@ -35710,7 +35700,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3572,
+    "id": 3571,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "table discussion for later",
@@ -35720,7 +35710,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3573,
+    "id": 3572,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "take my breath away",
@@ -35730,7 +35720,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3574,
+    "id": 3573,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "taken a toll on you",
@@ -35740,7 +35730,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3575,
+    "id": 3574,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Talent shortage",
@@ -35750,7 +35740,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3576,
+    "id": 3575,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "taming the garden",
@@ -35760,7 +35750,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3577,
+    "id": 3576,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tangled",
@@ -35770,7 +35760,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3578,
+    "id": 3577,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Tarot spread",
@@ -35780,7 +35770,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3579,
+    "id": 3578,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tawdry",
@@ -35790,7 +35780,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3580,
+    "id": 3579,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tawdy",
@@ -35800,7 +35790,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3581,
+    "id": 3580,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "teal dapper",
@@ -35810,7 +35800,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3582,
+    "id": 3581,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "teal drapper",
@@ -35820,7 +35810,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3583,
+    "id": 3582,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "teasing",
@@ -35830,7 +35820,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3584,
+    "id": 3583,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tense",
@@ -35840,7 +35830,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3585,
+    "id": 3584,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tentacious",
@@ -35850,7 +35840,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3586,
+    "id": 3585,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tentative work",
@@ -35860,7 +35850,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3587,
+    "id": 3586,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "terrace",
@@ -35870,17 +35860,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3588,
+    "id": 3587,
     "language": "English",
-    "targetLanguage": "German",
-    "word": "that's so nice of you",
-    "translation": "Das ist sehr nett von dir.",
+    "targetLanguage": "Russian",
+    "word": "That's so nice of you",
+    "translation": "это так мило с твоей стороны",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3589,
+    "id": 3588,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "thats certanly something to aspire",
@@ -35890,7 +35880,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3590,
+    "id": 3589,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "thaw",
@@ -35900,7 +35890,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3591,
+    "id": 3590,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "the decoction has not steeped",
@@ -35910,7 +35900,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3592,
+    "id": 3591,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "the future has taken root in the present",
@@ -35920,7 +35910,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3593,
+    "id": 3592,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "The other day",
@@ -35930,7 +35920,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3594,
+    "id": 3593,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "the project’s feasibility",
@@ -35940,7 +35930,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3595,
+    "id": 3594,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "thesis",
@@ -35950,17 +35940,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3596,
+    "id": 3595,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "this",
-    "translation": "ეს",
+    "translation": "это",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3597,
+    "id": 3596,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "this is correct, on both counts",
@@ -35970,7 +35960,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3598,
+    "id": 3597,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "this is punitive",
@@ -35980,7 +35970,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3599,
+    "id": 3598,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "thorax",
@@ -35990,7 +35980,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3600,
+    "id": 3599,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "thoughtlessness",
@@ -36000,7 +35990,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3601,
+    "id": 3600,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "thrifting",
@@ -36010,7 +36000,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3602,
+    "id": 3601,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "timid",
@@ -36020,7 +36010,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3603,
+    "id": 3602,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "To be on welfare",
@@ -36030,7 +36020,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3604,
+    "id": 3603,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to cast your lot",
@@ -36040,7 +36030,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3605,
+    "id": 3604,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to coin",
@@ -36050,7 +36040,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3606,
+    "id": 3605,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to conjure",
@@ -36060,7 +36050,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3607,
+    "id": 3606,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to convey",
@@ -36070,7 +36060,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3608,
+    "id": 3607,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to defy",
@@ -36080,7 +36070,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3609,
+    "id": 3608,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to deploy",
@@ -36090,7 +36080,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3610,
+    "id": 3609,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to exert",
@@ -36100,7 +36090,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3611,
+    "id": 3610,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to fuss abo",
@@ -36110,7 +36100,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3612,
+    "id": 3611,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to gnaw on",
@@ -36120,17 +36110,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3613,
+    "id": 3612,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "to go",
-    "translation": "წასვლა",
+    "translation": "идти",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3614,
+    "id": 3613,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to mend",
@@ -36140,7 +36130,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3615,
+    "id": 3614,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to nimb the pain",
@@ -36150,7 +36140,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3616,
+    "id": 3615,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to outline",
@@ -36160,7 +36150,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3617,
+    "id": 3616,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to take the edge off",
@@ -36170,7 +36160,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3618,
+    "id": 3617,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to take the edje off",
@@ -36180,7 +36170,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3619,
+    "id": 3618,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to tuck the chair",
@@ -36190,7 +36180,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3620,
+    "id": 3619,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "to undergo",
@@ -36200,7 +36190,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3621,
+    "id": 3620,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "toast our tea to",
@@ -36210,27 +36200,27 @@ const words = [
     "learned": false
   },
   {
+    "id": 3621,
+    "language": "English",
+    "targetLanguage": "Russian",
+    "word": "together",
+    "translation": "вместе",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
     "id": 3622,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "together",
-    "translation": "ერთად",
+    "targetLanguage": "Russian",
+    "word": "tomato soup",
+    "translation": "томатный суп",
     "level": null,
     "example": null,
     "learned": false
   },
   {
     "id": 3623,
-    "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "tomato soup",
-    "translation": "ტომატის წვნიანი",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
-    "id": 3624,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "Toothpick",
@@ -36240,7 +36230,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3625,
+    "id": 3624,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "torn down",
@@ -36250,7 +36240,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3626,
+    "id": 3625,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "torn up",
@@ -36260,7 +36250,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3627,
+    "id": 3626,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "toxic trait",
@@ -36270,7 +36260,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3628,
+    "id": 3627,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tradwife",
@@ -36280,7 +36270,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3629,
+    "id": 3628,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tradwife-adjacent",
@@ -36290,7 +36280,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3630,
+    "id": 3629,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tremble",
@@ -36300,7 +36290,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3631,
+    "id": 3630,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tremble in fear",
@@ -36310,7 +36300,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3632,
+    "id": 3631,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "truthfully",
@@ -36320,7 +36310,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3633,
+    "id": 3632,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "trying to keep my head abowe the water",
@@ -36330,7 +36320,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3634,
+    "id": 3633,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tumultuous frendship",
@@ -36340,7 +36330,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3635,
+    "id": 3634,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "turmeric",
@@ -36350,7 +36340,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3636,
+    "id": 3635,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "turn you in",
@@ -36360,7 +36350,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3637,
+    "id": 3636,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "turnarounds",
@@ -36370,7 +36360,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3638,
+    "id": 3637,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "tweakers",
@@ -36380,7 +36370,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3639,
+    "id": 3638,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "twisted up",
@@ -36390,7 +36380,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3640,
+    "id": 3639,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "twofold",
@@ -36400,7 +36390,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3641,
+    "id": 3640,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ulcer",
@@ -36410,7 +36400,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3642,
+    "id": 3641,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "ultimately",
@@ -36420,7 +36410,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3643,
+    "id": 3642,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "unadulterated",
@@ -36430,7 +36420,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3644,
+    "id": 3643,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "uncanny walley",
@@ -36440,7 +36430,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3645,
+    "id": 3644,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "unfathomable",
@@ -36450,7 +36440,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3646,
+    "id": 3645,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "unlike people",
@@ -36460,7 +36450,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3647,
+    "id": 3646,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "unnerved her",
@@ -36470,7 +36460,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3648,
+    "id": 3647,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "unopinionated",
@@ -36480,7 +36470,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3649,
+    "id": 3648,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "unruly",
@@ -36490,7 +36480,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3650,
+    "id": 3649,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "unsavoury local",
@@ -36500,7 +36490,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3651,
+    "id": 3650,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "untenable",
@@ -36510,7 +36500,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3652,
+    "id": 3651,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "unveil",
@@ -36520,7 +36510,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3653,
+    "id": 3652,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "unwavering",
@@ -36530,7 +36520,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3654,
+    "id": 3653,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "unwittingly",
@@ -36540,7 +36530,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3655,
+    "id": 3654,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "up yours",
@@ -36550,7 +36540,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3656,
+    "id": 3655,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "upbringing",
@@ -36560,7 +36550,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3657,
+    "id": 3656,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "upheaval amid",
@@ -36570,7 +36560,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3658,
+    "id": 3657,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "upholding",
@@ -36580,7 +36570,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3659,
+    "id": 3658,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "upright",
@@ -36590,7 +36580,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3660,
+    "id": 3659,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "uproot",
@@ -36600,7 +36590,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3661,
+    "id": 3660,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "utter mess",
@@ -36610,7 +36600,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3662,
+    "id": 3661,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "utter onfusion",
@@ -36620,17 +36610,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3663,
+    "id": 3662,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "vagina",
-    "translation": "საშო",
+    "translation": "влагалище",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3664,
+    "id": 3663,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "valor",
@@ -36640,7 +36630,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3665,
+    "id": 3664,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "various",
@@ -36650,7 +36640,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3666,
+    "id": 3665,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "vast beauty",
@@ -36660,11 +36650,21 @@ const words = [
     "learned": false
   },
   {
-    "id": 3667,
+    "id": 3666,
     "language": "English",
     "targetLanguage": "Russian",
     "word": "very apt",
     "translation": "очень уместно",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
+    "id": 3667,
+    "language": "English",
+    "targetLanguage": "Russian",
+    "word": "very tasty",
+    "translation": "очень вкусно",
     "level": null,
     "example": null,
     "learned": false
@@ -36912,9 +36912,9 @@ const words = [
   {
     "id": 3692,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "we didn’t order this",
-    "translation": "ჩვენ არ შეუკვეთეთ ეს",
+    "targetLanguage": "Russian",
+    "word": "We didn't order this",
+    "translation": "мы это не заказывали",
     "level": null,
     "example": null,
     "learned": false
@@ -36932,9 +36932,9 @@ const words = [
   {
     "id": 3694,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "we would like to take this out",
-    "translation": "ჩვენ გვინდა ამის ამოღება",
+    "targetLanguage": "Russian",
+    "word": "We would like to take this out",
+    "translation": "мы хотели бы взять это с собой",
     "level": null,
     "example": null,
     "learned": false
@@ -37032,9 +37032,9 @@ const words = [
   {
     "id": 3704,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "what is your name",
-    "translation": "რა გქვია",
+    "targetLanguage": "Russian",
+    "word": "What is your name?",
+    "translation": "как вас зовут?",
     "level": null,
     "example": null,
     "learned": false
@@ -37242,9 +37242,9 @@ const words = [
   {
     "id": 3725,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "with ham",
-    "translation": "ლორით",
+    "translation": "с ветчиной",
     "level": null,
     "example": null,
     "learned": false
@@ -37392,9 +37392,9 @@ const words = [
   {
     "id": 3740,
     "language": "English",
-    "targetLanguage": "Georgian",
+    "targetLanguage": "Russian",
     "word": "you have",
-    "translation": "შენ გაქვს",
+    "translation": "у тебя есть",
     "level": null,
     "example": null,
     "learned": false
@@ -37422,9 +37422,9 @@ const words = [
   {
     "id": 3743,
     "language": "English",
-    "targetLanguage": "Georgian",
-    "word": "you look really cool",
-    "translation": "მართლა მაგრად გამოიყურები",
+    "targetLanguage": "Russian",
+    "word": "You look really cool",
+    "translation": "ты выглядишь очень круто",
     "level": null,
     "example": null,
     "learned": false
@@ -37462,25 +37462,15 @@ const words = [
   {
     "id": 3747,
     "language": "French",
-    "targetLanguage": "English",
-    "word": "pas bies mal",
-    "translation": "not bad",
+    "targetLanguage": "Russian",
+    "word": "pas mal",
+    "translation": "неплохо",
     "level": null,
     "example": null,
     "learned": false
   },
   {
     "id": 3748,
-    "language": "Georgian",
-    "targetLanguage": "English",
-    "word": "აგმაშენებელი",
-    "translation": "Builder",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
-    "id": 3749,
     "language": "Georgian",
     "targetLanguage": "Russian",
     "word": "ამანათის ნომერი ორმოცდაათი",
@@ -37490,7 +37480,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3750,
+    "id": 3749,
     "language": "Georgian",
     "targetLanguage": "Russian",
     "word": "არ არის ელექტროენერგია",
@@ -37500,7 +37490,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3751,
+    "id": 3750,
     "language": "Georgian",
     "targetLanguage": "Russian",
     "word": "აქ",
@@ -37510,11 +37500,21 @@ const words = [
     "learned": false
   },
   {
-    "id": 3752,
+    "id": 3751,
     "language": "Georgian",
     "targetLanguage": "Russian",
     "word": "აქ დავჯდები",
     "translation": "я сяду тут",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
+    "id": 3752,
+    "language": "Georgian",
+    "targetLanguage": "Russian",
+    "word": "აღმაშენებელი",
+    "translation": "строитель",
     "level": null,
     "example": null,
     "learned": false
@@ -37563,7 +37563,7 @@ const words = [
     "id": 3757,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "Გემრიელად მიირთვით",
+    "word": "გემრიელად მიირთვით",
     "translation": "приятного аппетита",
     "level": null,
     "example": null,
@@ -37572,9 +37572,9 @@ const words = [
   {
     "id": 3758,
     "language": "Georgian",
-    "targetLanguage": "English",
+    "targetLanguage": "Russian",
     "word": "გულწრფელად",
-    "translation": "honestly",
+    "translation": "искренне",
     "level": null,
     "example": null,
     "learned": false
@@ -37603,8 +37603,8 @@ const words = [
     "id": 3761,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "თიკა",
-    "translation": "Чайник",
+    "word": "თქვენც არ გაქვთ დენი?",
+    "translation": "у вас тоже нет электричества?",
     "level": null,
     "example": null,
     "learned": false
@@ -37623,8 +37623,8 @@ const words = [
     "id": 3763,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "მობრუნება",
-    "translation": "очередь",
+    "word": "მაჩვენეთ",
+    "translation": "покажите",
     "level": null,
     "example": null,
     "learned": false
@@ -37633,8 +37633,8 @@ const words = [
     "id": 3764,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "მოვიყვანე",
-    "translation": "я принес",
+    "word": "მოვიტანე",
+    "translation": "я принёс",
     "level": null,
     "example": null,
     "learned": false
@@ -37653,7 +37653,7 @@ const words = [
     "id": 3766,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "მშვენიერი",
+    "word": "მშვენივრად",
     "translation": "прекрасно",
     "level": null,
     "example": null,
@@ -37662,9 +37662,9 @@ const words = [
   {
     "id": 3767,
     "language": "Georgian",
-    "targetLanguage": "English",
+    "targetLanguage": "Russian",
     "word": "ორი ნაბიჯი",
-    "translation": "two steps",
+    "translation": "два шага",
     "level": null,
     "example": null,
     "learned": false
@@ -37683,8 +37683,8 @@ const words = [
     "id": 3769,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "საბარგულში მინდა ჩავსვა",
-    "translation": "хочу положить в багажник",
+    "word": "რიგი",
+    "translation": "очередь",
     "level": null,
     "example": null,
     "learned": false
@@ -37693,14 +37693,24 @@ const words = [
     "id": 3770,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "სად არის ნაგავი?",
-    "translation": "в где мусорка?",
+    "word": "საბარგულში მინდა ჩავსვა",
+    "translation": "хочу положить в багажник",
     "level": null,
     "example": null,
     "learned": false
   },
   {
     "id": 3771,
+    "language": "Georgian",
+    "targetLanguage": "Russian",
+    "word": "სად არის ნაგვის ურნა?",
+    "translation": "где мусорка?",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
+    "id": 3772,
     "language": "Georgian",
     "targetLanguage": "Russian",
     "word": "სასაჩუქრე ჩანთა",
@@ -37710,7 +37720,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3772,
+    "id": 3773,
     "language": "Georgian",
     "targetLanguage": "Russian",
     "word": "საფერფლე",
@@ -37720,7 +37730,17 @@ const words = [
     "learned": false
   },
   {
-    "id": 3773,
+    "id": 3774,
+    "language": "Georgian",
+    "targetLanguage": "Russian",
+    "word": "სიცივე",
+    "translation": "холод",
+    "level": null,
+    "example": null,
+    "learned": false
+  },
+  {
+    "id": 3775,
     "language": "Georgian",
     "targetLanguage": "Russian",
     "word": "ტელეფონის ნომრით",
@@ -37730,7 +37750,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3774,
+    "id": 3776,
     "language": "Georgian",
     "targetLanguage": "Russian",
     "word": "უფრო",
@@ -37740,7 +37760,7 @@ const words = [
     "learned": false
   },
   {
-    "id": 3775,
+    "id": 3777,
     "language": "Georgian",
     "targetLanguage": "Russian",
     "word": "ფუნთუშები",
@@ -37750,27 +37770,27 @@ const words = [
     "learned": false
   },
   {
-    "id": 3776,
+    "id": 3778,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "ქათამი",
+    "word": "ქათმის",
     "translation": "куриный",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3777,
+    "id": 3779,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "ყველა",
+    "word": "ყველაფერი",
     "translation": "всё",
     "level": null,
     "example": null,
     "learned": false
   },
   {
-    "id": 3778,
+    "id": 3780,
     "language": "Georgian",
     "targetLanguage": "Russian",
     "word": "შეგიძლიათ აქ გაჩერდეთ",
@@ -37780,31 +37800,11 @@ const words = [
     "learned": false
   },
   {
-    "id": 3779,
-    "language": "Georgian",
-    "targetLanguage": "Russian",
-    "word": "შენც არ გაქვს დენი?",
-    "translation": "у вас тоже нет электричества?",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
-    "id": 3780,
-    "language": "Georgian",
-    "targetLanguage": "Russian",
-    "word": "ჩემი გაჩერება",
-    "translation": "моя остановка",
-    "level": null,
-    "example": null,
-    "learned": false
-  },
-  {
     "id": 3781,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "ჩვენება",
-    "translation": "покажите",
+    "word": "ჩაიდანი",
+    "translation": "чайник",
     "level": null,
     "example": null,
     "learned": false
@@ -37813,8 +37813,8 @@ const words = [
     "id": 3782,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "ცივი",
-    "translation": "Холод",
+    "word": "ჩემი გაჩერება",
+    "translation": "моя остановка",
     "level": null,
     "example": null,
     "learned": false
@@ -37903,7 +37903,7 @@ const words = [
     "id": 3791,
     "language": "Georgian",
     "targetLanguage": "Russian",
-    "word": "ჯერჯერობით",
+    "word": "ჯერჯერობით სულ ესაა",
     "translation": "пока всё",
     "level": null,
     "example": null,
@@ -37922,9 +37922,9 @@ const words = [
   {
     "id": 3793,
     "language": "German",
-    "targetLanguage": "English",
-    "word": "Zumbeispiel",
-    "translation": "For example",
+    "targetLanguage": "Russian",
+    "word": "zum Beispiel",
+    "translation": "например",
     "level": null,
     "example": null,
     "learned": false
@@ -37943,8 +37943,8 @@ const words = [
     "id": 3795,
     "language": "Italian",
     "targetLanguage": "Russian",
-    "word": "corta",
-    "translation": "короткие",
+    "word": "corte",
+    "translation": "суд",
     "level": null,
     "example": null,
     "learned": false
@@ -37953,8 +37953,8 @@ const words = [
     "id": 3796,
     "language": "Italian",
     "targetLanguage": "Russian",
-    "word": "corte",
-    "translation": "суд",
+    "word": "corti",
+    "translation": "короткие",
     "level": null,
     "example": null,
     "learned": false
@@ -38023,7 +38023,7 @@ const words = [
     "id": 3803,
     "language": "Italian",
     "targetLanguage": "Russian",
-    "word": "piu",
+    "word": "più",
     "translation": "более",
     "level": null,
     "example": null,
@@ -38053,7 +38053,7 @@ const words = [
     "id": 3806,
     "language": "Italian",
     "targetLanguage": "Russian",
-    "word": "sognia",
+    "word": "sognava",
     "translation": "он мечтал",
     "level": null,
     "example": null,

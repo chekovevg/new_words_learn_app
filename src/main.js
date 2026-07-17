@@ -1123,6 +1123,11 @@ async function addWord(form) {
     return;
   }
 
+  if (!/[А-Яа-яЁё]/u.test(translation)) {
+    setError('Перевод должен быть на русском.');
+    return;
+  }
+
   if (normalizeText(language) === 'russian') {
     setError('Русский — только язык перевода. Укажите язык слова.');
     return;

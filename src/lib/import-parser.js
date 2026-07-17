@@ -328,6 +328,13 @@ function normalizeRow(row) {
     };
   }
 
+  if (
+    (row.targetLanguage && normalizeText(row.targetLanguage) !== 'russian') ||
+    !/[А-Яа-яЁё]/u.test(translation)
+  ) {
+    throw new Error('Translation language must be Russian.');
+  }
+
   return {
     word,
     translation,

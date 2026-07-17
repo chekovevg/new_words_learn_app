@@ -22,6 +22,16 @@ test('builds vocabulary data with the installed SheetJS ESM package', () => {
     [],
     'Russian must only be used as the translation language'
   );
+  assert.deepEqual(
+    rows.filter((row) => row.targetLanguage !== 'Russian'),
+    [],
+    'Every vocabulary card must translate into Russian'
+  );
+  assert.deepEqual(
+    rows.filter((row) => !/[А-Яа-яЁё]/u.test(row.translation)),
+    [],
+    'Every current translation must contain Russian text'
+  );
   const auditedEnglishWords = new Set([
     'bailing',
     'bandwith',

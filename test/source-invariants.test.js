@@ -28,6 +28,11 @@ test('clears persisted add-word state after a successful save', () => {
   assert.match(mainSource, /state\.forms\.addWord\s*=\s*createDefaultAddWordForm\(\)/);
 });
 
+test('rejects manually entered translations without Russian text', () => {
+  assert.match(mainSource, /!\/\[А-Яа-яЁё\]\/u\.test\(translation\)/);
+  assert.match(mainSource, /Перевод должен быть на русском/);
+});
+
 test('builds the confirmation redirect from the deployed base URL', () => {
   assert.match(mainSource, /new URL\(import\.meta\.env\.BASE_URL, window\.location\.href\)/);
 });
