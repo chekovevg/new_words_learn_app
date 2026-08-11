@@ -8,6 +8,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const mainSource = fs.readFileSync(path.join(root, 'src/main.js'), 'utf8');
 const supabaseSource = fs.readFileSync(path.join(root, 'src/lib/supabase.js'), 'utf8');
 const indexSource = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const vercelConfig = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
+const securityHeaders = new Map(vercelConfig.headers[0].headers.map(({ key, value }) => [key, value]));
 
 test('does not await database work inside the Supabase auth callback', () => {
   assert.doesNotMatch(mainSource, /onAuthStateChange\(async/);
@@ -49,6 +51,13 @@ test('does not import the legacy seed eagerly', () => {
 
 test('does not preserve an obsolete browser import map', () => {
   assert.doesNotMatch(indexSource, /type=["']importmap["']/);
+});
+
+test('report-only CSP allows Google Fonts without advertising a nonexistent report collector', () => {
+  const csp = securityHeaders.get('Content-Security-Policy-Report-Only') || '';
+  assert.match(csp, /style-src[^;]*https:\/\/fonts\.googleapis\.com/);
+  assert.match(csp, /font-src[^;]*https:\/\/fonts\.gstatic\.com/);
+  assert.doesNotMatch(csp, /(?:report-uri|report-to)/);
 });
 
 test('does not block the initial dictionary on the admin-wide refresh', () => {
