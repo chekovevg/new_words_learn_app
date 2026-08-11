@@ -5,6 +5,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const initPath = path.join(root, 'supabase', 'migrations', '20260526_init.sql');
 const hardeningPath = path.join(root, 'supabase', 'migrations', '20260715_release_hardening.sql');
 const russianTranslationOnlyPath = path.join(root, 'supabase', 'migrations', '20260718_russian_translation_only.sql');
@@ -360,7 +361,7 @@ test('security hardening locks privileged functions and policies to explicit pri
     'is_self_or_admin(uuid)',
     'consume_ai_enrichment_quota(integer)'
   ]) {
-    const escaped = functionName.replace(/[().]/g, '\\$&').replace(' ', '\\s+');
+    const escaped = escapeRegExp(functionName).replaceAll(' ', '\\s+');
     assert.match(securityHardeningSql, new RegExp(`alter\\s+function\\s+public\\.${escaped}\\s+set\\s+search_path\\s+to\\s+''`, 'i'));
   }
 
