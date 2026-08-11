@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^8.1.4"
+    "vite": "^8.2.1"
   },
   "bugs": {
     "url": "https://github.com/chekovevg/new_words_learn_app/issues"
