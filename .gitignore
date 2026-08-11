@@ -4,3 +4,24 @@ dist
 coverage
 .env.local
 .env.*.local
+
+# Local secrets and Vercel project metadata
+.env
+.env.*
+!.env.example
+!.env.*.example
+.vercel/
+
+# Logs, editor metadata, and credentials
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.vscode/
+.idea/
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
