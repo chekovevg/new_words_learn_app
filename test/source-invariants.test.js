@@ -53,8 +53,9 @@ test('does not preserve an obsolete browser import map', () => {
   assert.doesNotMatch(indexSource, /type=["']importmap["']/);
 });
 
-test('report-only CSP allows Google Fonts without advertising a nonexistent report collector', () => {
+test('report-only CSP restricts form targets and allows Google Fonts without a fake collector', () => {
   const csp = securityHeaders.get('Content-Security-Policy-Report-Only') || '';
+  assert.match(csp, /(?:^|;\s*)form-action\s+'self'(?:;|$)/);
   assert.match(csp, /style-src[^;]*https:\/\/fonts\.googleapis\.com/);
   assert.match(csp, /font-src[^;]*https:\/\/fonts\.gstatic\.com/);
   assert.doesNotMatch(csp, /(?:report-uri|report-to)/);
